@@ -8,20 +8,20 @@ A virtual pet that you can play with. This game 'scores' players for time spent 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
 - [x] Proper use of Markdown
-- [ ] A concise and compelling elevator pitch
-- [ ] Description of key features
-- [ ] Description of how you will use each technology
-- [ ] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
+- [x] A concise and compelling elevator pitch
+- [x] Description of key features
+- [x] Description of how you will use each technology
+- [x] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
 
 ### Elevator pitch
 
-Old idle games like Cookie Clicker are simple and yet incredibly fun for most players. PetPet aims to replicate the simplicity and joy of watching a number climb endlessly higher via simple inputs and waiting to reach milestones.
+Old idle games like Cookie Clicker are simple and yet incredibly fun for most players. PetPet aims to replicate the simplicity and joy of watching a number climb endlessly higher via simple inputs and waiting to reach milestones for rewards. 
 
 ### Design
 
-![Design image](PetPetDiagram.jpg)
+![Design diagram](PetPetDiagram.jpg)
 
-The design focuses on the game window, including the actions to be taken as buttons off to the side.
+The design focuses on the game window, including the actions to be taken as buttons off to the side. The nav bar would have the link to the leaderboard, as well as a link back to the home page.
 
 ```mermaid
 sequenceDiagram
@@ -33,8 +33,8 @@ sequenceDiagram
 ### Key features
 
 - User interaction with pet
-- Scores that save to server
-- Describe your key feature
+- Scores and leaderboard
+- Cosmetics
 
 ### Technologies
 
