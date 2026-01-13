@@ -19,7 +19,7 @@ Old idle games like Cookie Clicker are simple and yet incredibly fun for most pl
 
 ### Design
 
-![Design image](placeholder.png)
+![Design image](PetPetDiagram.jpg)
 
 The design focuses on the game window, including the actions to be taken as buttons off to the side.
 
@@ -32,8 +32,8 @@ sequenceDiagram
 
 ### Key features
 
-- Describe your key feature
-- Describe your key feature
+- User interaction with pet
+- Scores that save to server
 - Describe your key feature
 
 ### Technologies
@@ -42,10 +42,10 @@ I am going to use the required technologies in the following ways.
 
 - **HTML** - Create and format website
 - **CSS** - Style and format the game and site
-- **React** - Build the game and interactivity aspects of it; petting and playing interations, changing cosmetic features, I think this is also where the scoring system goes
-- **Service** - Description here
-- **DB/Login** - User account information
-- **WebSocket** - Description here
+- **React** - Build the game and interactivity aspects of it; petting and playing interations, changing cosmetic features, and scoring system
+- **Service** - Store overall rankings, logins, pets
+- **DB/Login** - User account information; ie, pet's name, current cosmetic, score
+- **WebSocket** - Users can see the rankings and achievements of other players
 
 
 
