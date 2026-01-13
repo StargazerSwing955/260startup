@@ -43,7 +43,7 @@ I am going to use the required technologies in the following ways.
 - **HTML** - Create and format website
 - **CSS** - Style and format the game and site
 - **React** - Build the game and interactivity aspects of it; petting and playing interations, changing cosmetic features, and scoring system
-- **Service** - Store overall rankings, logins, pets
+- **Service** - Store login, pet information, obtained cosmetics, and player rankings
 - **DB/Login** - User account information; ie, pet's name, current cosmetic, score
 - **WebSocket** - Users can see the rankings and achievements of other players
 
