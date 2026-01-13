@@ -2,7 +2,7 @@
 
 [My Notes](notes.md)
 
-A virtual pet that you can play with. 
+A virtual pet that you can play with. This game 'scores' players for time spent playing and petting their pet. Certain scores will unlock cosmetics for the pet that sometimes make getting points easier.
 
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
@@ -15,7 +15,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 ### Elevator pitch
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Old idle games like Cookie Clicker are simple and yet incredibly fun for most players. PetPet aims to replicate the simplicity and joy of watching a number climb endlessly higher via simple inputs and waiting 
 
 ### Design
 
@@ -40,12 +40,14 @@ sequenceDiagram
 
 I am going to use the required technologies in the following ways.
 
-- **HTML** - Description here
-- **CSS** - Description here
-- **React** - Description here
+- **HTML** - Create and format website
+- **CSS** - Style and format the game and site
+- **React** - Build the game and interactivity aspects of it; petting and playing interations, changing cosmetic features, I think this is also where the scoring system goes
 - **Service** - Description here
-- **DB/Login** - Description here
+- **DB/Login** - User account information
 - **WebSocket** - Description here
+
+
 
 ## 🚀 AWS deliverable
 
