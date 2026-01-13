@@ -19,7 +19,7 @@ Old idle games like Cookie Clicker are simple and yet incredibly fun for most pl
 
 ### Design
 
-![Design diagram](images/PetPetDiagram.jpg)
+![PetPet screen charts, including default, playing, cosmetic, and leaderboard screens](images/PetPetDiagram.jpg)
 
 The design focuses on the game window, including the actions to be taken as buttons off to the side. The nav bar would have the link to the leaderboard, as well as a link back to the home page.
 
