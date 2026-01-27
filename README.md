@@ -63,7 +63,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [x] **Proper HTML element usage** - HTML renders properly in browser.
 - [x] **Links** - links to other webpages present where appropriate; as well as link to repository.
 - [x] **Text** - text displaying parts of webpage and placeholders
-- [ ] **3rd party API placeholder** - I did not complete this part of the deliverable.
+- [x] **3rd party API placeholder** - placeholder for quote on about
 - [x] **Images** - images added where needed.
 - [x] **Login placeholder** - Username and password form created.
 - [x] **DB data placeholder** - I did not complete this part of the deliverable.
