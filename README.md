@@ -66,8 +66,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [x] **3rd party API placeholder** - placeholder for quote on about
 - [x] **Images** - images added where needed.
 - [x] **Login placeholder** - Username and password form created.
-- [x] **DB data placeholder** - I did not complete this part of the deliverable.
-- [x] **WebSocket placeholder** - I did not complete this part of the deliverable.
+- [x] **DB data placeholder** - Leaderboard placeholder
+- [x] **WebSocket placeholder** - Notification placeholder on play page
 
 ## 🚀 CSS deliverable
 
