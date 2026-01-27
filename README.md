@@ -62,7 +62,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [x] **HTML pages** - 4 html pages for different site components.
 - [x] **Proper HTML element usage** - HTML renders properly in browser.
 - [x] **Links** - links to other webpages present where appropriate; as well as link to repository.
-- [ ] **Text** - I did not complete this part of the deliverable.
+- [x] **Text** - text displaying parts of webpage and placeholders
 - [ ] **3rd party API placeholder** - I did not complete this part of the deliverable.
 - [x] **Images** - images added where needed.
 - [x] **Login placeholder** - Username and password form created.
