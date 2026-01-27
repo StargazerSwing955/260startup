@@ -43,7 +43,7 @@ I am going to use the required technologies in the following ways.
 - **HTML** - Create and format website
 - **CSS** - Style and format the game and site
 - **React** - Build the game and interactivity aspects of it; petting and playing interations, changing cosmetic features, and scoring system
-- **Service** - Store login, pet information, obtained cosmetics, and player rankings
+- **Service** - Random quote on the about page
 - **DB/Login** - User account information; ie, pet's name, current cosmetic, score
 - **WebSocket** - Users can see the rankings and achievements of other players
 
@@ -66,8 +66,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [ ] **3rd party API placeholder** - I did not complete this part of the deliverable.
 - [x] **Images** - images added where needed.
 - [x] **Login placeholder** - Username and password form created.
-- [ ] **DB data placeholder** - I did not complete this part of the deliverable.
-- [ ] **WebSocket placeholder** - I did not complete this part of the deliverable.
+- [x] **DB data placeholder** - I did not complete this part of the deliverable.
+- [x] **WebSocket placeholder** - I did not complete this part of the deliverable.
 
 ## 🚀 CSS deliverable
 
