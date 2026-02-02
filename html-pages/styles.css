@@ -1,4 +1,15 @@
+
+
 header {
+    width: screen;
     background-color: #6e2fae;
     color: #eff3f6;
+}
+
+.nav-item{
+
+    list-style: none;
+    a{
+       color: #eff3f6; 
+    }
 }
