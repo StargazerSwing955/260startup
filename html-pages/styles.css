@@ -14,6 +14,7 @@ header {
     padding: 10px;
     display: flex;
     flex-direction: row;
+    align-items: center;
     
 }
 
@@ -29,16 +30,58 @@ nav{
 
 .nav-item{
     list-style: none;
-
+    padding: 5px;
+    border-radius: 5px;
     a{
        color: #eff3f6; 
     }
 }
 
+.nav-item:hover{
+    background-color: #552486;
+}
+
 /* footer */
+footer{
+    background-color: #e6e8ea;
+    height: 150px;
+    width: screen;
+}
+.footer-content{
+    width: screen;
+    margin: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
 
 
 /* body */
+hr{
+    display: none;
+}
+
+.main{
+    margin: 20px;
+}
+
+
+table, th, td{
+    border-collapse: collapse;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    text-align: center;
+    
+}
+
+.pet-icon{
+    height: 50px;
+    width: 50px;
+}
 
 
 /* pick if you want to do orientation or screensize media query  */
