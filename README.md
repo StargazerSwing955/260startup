@@ -73,7 +73,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Visually appealing colors and layout. No overflowing elements.** - I did not complete this part of the deliverable.
+- [x] **Visually appealing colors and layout. No overflowing elements.** - picked purples and watched for overflow
 - [ ] **Use of a CSS framework** - I did not complete this part of the deliverable.
 - [ ] **All visual elements styled using CSS** - I did not complete this part of the deliverable.
 - [ ] **Responsive to window resizing using flexbox and/or grid display** - I did not complete this part of the deliverable.

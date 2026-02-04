@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Slackey&display=swap');
 
 /* header*/
 header {
@@ -64,10 +64,49 @@ hr{
     display: none;
 }
 
-.main{
-    margin: 20px;
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+/* button */
+
+button{
+    margin: 10px;
+    background-color: #d0acf5;
+}
+button:hover{
+    
+    color: white;
+    background-color: #552486;
+}
+
+/* pet room stuff */
+
+.pet-icon{
+    height: 50px;
+    width: 50px;
+}
+
+.pet-room{
+    text-align: center;
+    position: relative;
+   
+    background-color: #d0acf5;
+
+}
+
+.pet-sprite{
+    scale: 50%;
+}
+
+.pet-sprite:hover{
+    transform: scale(-1, 1);
+}
+
+
+/* table */
 
 table, th, td{
     border-collapse: collapse;
@@ -78,16 +117,18 @@ table, th, td{
     
 }
 
-.pet-icon{
-    height: 50px;
-    width: 50px;
+table{
+    width: 75vw;
 }
+th{
+    background-color: #d0acf5;
+}
+
+
 
 
 /* pick if you want to do orientation or screensize media query  */
 @media (orientation: landscape) {
-    
-}
 
 /* media header */
 
@@ -95,3 +136,4 @@ table, th, td{
 
 /* media body */
 
+}
