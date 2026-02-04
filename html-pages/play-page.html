@@ -28,20 +28,24 @@
     <main>
         <hr/><!-- don't forget to remove later -->
 
+        <div class="play-page-content">
         <ul class="notification-list"> <!-- class name lengthed to prevent confusion -->
             <li class="notification">Brian has unlocked the tuxedo pet!</li>
             <li class="notification">Friend has reached 5000 points!</li> <!-- Points will likely be given a silly name later -->
             
         </ul>
 
+        <div class="play-content">
+
         <section class="pet-room">
-            <h2><span class="Pet-Name">Pet-Name</span>&apos;s room!</h2> 
+            <h2 class="pet-room-name"><span class="Pet-Name">Pet-Name</span>&apos;s room!</h2> 
             <!-- likely auto gen a name at first -->
             <p class="score-topleft">Score: <span class="score">0000</span></p>
 
             <!-- pet itself -->
+              <div class="pet-box"> <!--box for holding pet's hostage /j (for styling sprite relative to container) -->
             <img class="pet-sprite" src="../sprites/pet_base_sprite.png" alt="Pet base sprite">
-
+            </div>
             <!-- might put this outside the room itself -->
             <div class="room-buttons">
                 <!--start minigame where mouse is a laser pointer -->
@@ -52,9 +56,12 @@
 
         </section>
 
-         <img class="pet-icon" src="../sprites/pet_icon_base.png" alt="Pet head icon"> <!--icon should float left-->
-        <p>You have <span class="score">0000</span> points with <span class="Pet-Name">Pet-Name</span></p>
+        
+        <p> <img class="pet-icon float" src="../sprites/pet_icon_base.png" alt="Pet head icon"> <!--icon should float left-->You have <span class="score">0000</span> points with <span class="Pet-Name">Pet-Name</span></p>
         <p>Check where you rank on the <a href="leader-page.html">leaderboard</a>!</p>
+        </div>
+
+        </div>
 
         <hr/><!-- don't forget to remove later -->
     </main>

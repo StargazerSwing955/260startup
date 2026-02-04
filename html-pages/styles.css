@@ -18,6 +18,7 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 
@@ -26,7 +27,7 @@ nav{
 }
 .nav-menu{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 5px;
 }
 
@@ -37,6 +38,7 @@ nav{
 }
 .nav-item  a{
     color: #eff3f6; 
+    text-decoration: none;
 }
 .nav-item:hover{
     background-color: #552486;
@@ -47,7 +49,8 @@ footer{
     background-color: #e6e8ea;
     height: 150px;
     width: 100vw;
-   
+    position: fixed;
+    bottom: 0;
 }
 
 .footer-content{
@@ -66,11 +69,25 @@ footer{
 hr{
     display: none;
 }
-main{
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 150px;
+}
+.play-content{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
+.play-page content{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+
 
 /* button */
 
@@ -92,32 +109,76 @@ button:hover{
     margin: 5px;
 }
 
+
+.notification-list{
+  justify-self: left;
+}
 /* pet room stuff */
 
 .pet-icon{
     height: 50px;
     width: 50px;
 }
+.pet-icon.float{
+    float: inline-start;
+}
 
 .pet-room{
-    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
     position: relative;
-   
+    width: 75vw;
+    height: 500px;
     background-color: #d0acf5;
+
+    /* grid-template-areas: 
+    "score" "name-header" "blank"
+    "pet" "pet" "pet"
+    "buttons" "buttons" "blank"
+    ; */
 }
 
-.pet-room button{
-    background-color: #9563c6;
-    border-style: groove;
+.pet-room-name{
+    text-align: center;
+    padding: 5px;
+    grid-row-start: 1;
+    grid-column-start: 2;
 }
 
+.score-topleft{
+    padding: 5px;
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.pet-box{
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    align-items: center;
+}
 .pet-sprite{
+
     scale: 50%;
 }
 
 .pet-sprite:hover{
     transform: scale(-1, 1);
 }
+
+.pet-room button{
+    grid-row-start: 3;
+    grid-column: 1;
+    background-color: #9563c6;
+    border-style: solid;
+}
+
+.pet-room button:hover{
+    background-color: #552486;
+}
+
 
 
 /* table */
@@ -138,12 +199,14 @@ th{
 }
 
 
-
-
-
-@media (width<700px) {
-    .pet-room{
-        width: 75vw;
-        height: auto;
-    }
+@media (width>700px) {
+.nav-menu{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
 }
+
+    
+}
+
+
