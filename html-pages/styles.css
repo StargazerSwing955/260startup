@@ -113,7 +113,6 @@ button:hover{
 .notification-list{
   justify-self: left;
 }
-/* pet room stuff */
 
 .pet-icon{
     height: 50px;
@@ -122,6 +121,8 @@ button:hover{
 .pet-icon.float{
     float: inline-start;
 }
+
+/* pet room stuff, grid */
 
 .pet-room{
     width: 75vw;
@@ -139,34 +140,34 @@ button:hover{
     ; */
 }
 
-.pet-room-name{
+.pet-room-name{ /* pet's name label */
     text-align: center;
     padding: 5px;
     grid-row-start: 1;
     grid-column-start: 2;
 }
 
-.score-topleft{
+.score-topleft{/* score (position not value) */
     padding: 5px;
     grid-column: 1;
     grid-row: 1;
 }
 
-.pet-box{
+.pet-box{ /* pet's spirite box */
     grid-column: 2;
     grid-row: 2;
     display: flex;
     align-items: center;
 }
-.pet-sprite{
+.pet-sprite{ 
     scale: 50%;
 }
 
-.pet-sprite:hover{
+.pet-sprite:hover{ /* placeholder so I feel like you can pet it */
     transform: scale(-1, 1);
 }
 
-.pet-room button{
+.room-buttons{ /* grid doesn't like these for some reason */
     grid-row: 3;
     grid-column: 2;
     background-color: #9563c6;
@@ -194,6 +195,12 @@ table{
 }
 th{
     background-color: #d0acf5;
+}
+
+.about-banner{
+    background-color: #9563c6;
+    width: 75vw;
+    height: 50px;
 }
 
 
