@@ -6,7 +6,7 @@
 
 /* header*/
 header {
-    width: screen;
+    width: 100vw;
     background-color: #6e2fae;
     color: #eff3f6;
     
@@ -81,10 +81,14 @@ main {
     align-items: center;
 }
 
-.play-page content{
+.play-page-content{
     display: flex;
     flex-direction: column;
     justify-content: start;
+}
+
+.Under-room-content{
+    text-align: center;
 }
 
 
@@ -124,15 +128,16 @@ button:hover{
 
 /* pet room stuff, grid */
 
-.pet-room{
+.pet-room{ 
+    /* originally scaled for 300px vw */
     margin: 15px;
-    width: 750px;
-    height: 500px;
+    width: 250px;
+    height: 250px;
     background-color: #d0acf5;
 
     display: grid;
-    grid-template-columns: 200px 350px 200px;
-    grid-template-rows: 125px 250px 125px;
+    grid-template-columns: repeat(3, minmax(20px, 1fr));
+    grid-template-rows: repeat(3, minmax(12px, 1fr));
     
     align-items: center;
     padding: 5px;
@@ -149,12 +154,14 @@ button:hover{
     padding: 5px;
     grid-row-start: 1;
     grid-column-start: 2;
+   
 }
 
 .score-topleft{/* score (position not value) */
     padding: 5px;
     grid-column: 1;
     grid-row: 1;
+   
 }
 
 .pet-box{ /* pet's spirite box */
@@ -162,7 +169,7 @@ button:hover{
     grid-row: 2;
     display: flex;
     align-items: center;
-    scale: 45%;
+    scale: 25%;
 }
 /* .pet-sprite{ 
     scale: 25%;
@@ -175,6 +182,7 @@ button:hover{
 .room-buttons{ /* grid doesn't like these for some reason */
     grid-row: 3;
     grid-column: 1;
+    scale: 75%;
 }
 
 .room-but{
@@ -212,11 +220,57 @@ th{
 }
 
 
+@media (width>500px) {
+    .pet-room{ 
+    /* originally scaled for 300px vw */
+    margin: 15px;
+    width: 350px;
+    height: 250px;
+    background-color: #d0acf5;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(20px, 1fr));
+    grid-template-rows: repeat(3, minmax(12px, 1fr));
+
+}
+
+
+    
+}
+
 @media (width>700px) {
 .nav-menu{
     display: flex;
     flex-direction: row;
     gap: 5px;
+}
+
+.pet-room{ 
+    /* originally scaled for 300px vw */
+    margin: 15px;
+    width: 60vw;
+    height: 400px;
+    background-color: #d0acf5;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(20px, 1fr));
+    grid-template-rows: repeat(3, minmax(12px, 1fr));
+    
+    align-items: center;
+    padding: 5px;
+
+    /* grid-template-areas: 
+    "score" "name-header" "blank"
+    "pet" "pet" "pet"
+    "buttons" "buttons" "blank"
+    ; */
+}
+.room-buttons{
+    margin: 5px;
+    scale: 100%;
+}
+.pet-box{
+    scale: 35%;
 }
 
     
