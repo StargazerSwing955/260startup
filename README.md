@@ -74,7 +74,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
 - [x] **Visually appealing colors and layout. No overflowing elements.** - picked purples and watched for overflow
-- [ ] **Use of a CSS framework** - gonna go get bootstrap
+- [x] **Use of a CSS framework** - used bootstrap buttons 
 - [x] **All visual elements styled using CSS** - I picked a font and colors with flex and grid
 - [x] **Responsive to window resizing using flexbox and/or grid display** - I used multiple media queries to get the grid to formate correctly
 - [x] **Use of a imported font** - used Slackey from Google Fonts
