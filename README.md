@@ -85,8 +85,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
 - [x] **Bundled using Vite** - reorganized file layouts
-- [ ] **Components** - I did not complete this part of the deliverable.
-- [ ] **Router** - I did not complete this part of the deliverable.
+- [x] **Components** - made pages jsx files and components
+- [x] **Router** - everything routes with the browser router the way it did before
 
 ## 🚀 React part 2: Reactivity deliverable
 
