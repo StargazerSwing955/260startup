@@ -5,7 +5,7 @@ import './styles.css';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import { Login } from './login/login';
 import { Play } from './play/play';
-import { Leader } from './leaderboard/leader';
+import { Leaderboard } from './leaderboard/leader';
 import { About } from './about/about';
 
 export default function App() {
@@ -18,10 +18,18 @@ export default function App() {
             <h1>PetPet</h1>
             <nav >
                 <ul className="nav-menu">
-                    <li className="nav-item"><NavLink href="index.html">Login</NavLink></li>
-                    <li className="nav-item"><NavLink href="html-pages/play-page.html">Play</NavLink></li>
-                    <li className="nav-item"><NavLink href="html-pages/leader-page.html">Leaderboard</NavLink></li>
-                    <li className="nav-item"><NavLink href="html-pages/about-page.html">About</NavLink></li>
+                    <li className="nav-item">
+                        <NavLink to='/'>Login</NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink to='play'>Play</NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink to='leaderboard'>Leaderboard</NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink to='about'>About</NavLink>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -30,7 +38,7 @@ export default function App() {
     <Routes>
      <Route path='/' element={<Login />} exact />
      <Route path='/play' element={<Play />} />
-     <Route path='/scores' element={<Scores />} />
+     <Route path='/leaderboard' element={<Leaderboard />} />
      <Route path='/about' element={<About />} />
      <Route path='*' element={<NotFound />} />
     </Routes>
