@@ -65,6 +65,9 @@ footer{
 
 
 /* body */
+.body{
+    display: flex;
+}
 
 hr{
     display: none;
