@@ -4,7 +4,9 @@
   "description": "[My Notes](notes.md)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "repository": {
     "type": "git",
@@ -17,5 +19,13 @@
   "bugs": {
     "url": "https://github.com/StargazerSwing955/260startup/issues"
   },
-  "homepage": "https://github.com/StargazerSwing955/260startup#readme"
+  "homepage": "https://github.com/StargazerSwing955/260startup#readme",
+  "devDependencies": {
+    "vite": "^7.3.1"
+  },
+  "dependencies": {
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-router-dom": "^7.13.0"
+  }
 }

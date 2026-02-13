@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>PetPet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+   <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <header>
+        <div class="header-content">
+            <h1>PetPet</h1>
+             <nav >
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="../index.html">Login</a></li>
+                    <li class="nav-item"><a href="play-page.html">Play</a></li>
+                    <li class="nav-item"><a href="leader-page.html">Leaderboard</a></li>
+                    <li class="nav-item"><a href="about-page.html">About</a></li>
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <hr/><!-- don't forget to remove later -->
+
+        <div class="play-page-content">
+        <ul class="notification-list"> <!-- class name lengthed to prevent confusion -->
+            <li class="notification">Brian has unlocked the tuxedo pet!</li>
+            <li class="notification">Friend has reached 5000 points!</li> <!-- Points will likely be given a silly name later -->
+            
+        </ul>
+
+        <div class="play-content">
+
+        <section class="pet-room">
+
+            <h2 class="pet-room-name"><span class="Pet-Name">Pet-Name</span>&apos;s room!</h2> 
+            <!-- likely auto gen a name at first -->
+            <p class="score-topleft">Score: <span class="score">0000</span></p>
+
+            <!-- pet itself -->
+              <div class="pet-box"> <!--box for holding pet's hostage /j (for styling sprite relative to container) -->
+            <img class="pet-sprite" src="../public/sprites/pet_base_sprite.png" alt="Pet base sprite">
+            </div>
+
+            <!-- might put this outside the room itself -->
+            <div class="room-buttons">
+
+                <!--start minigame where mouse is a laser pointer -->
+                <button class="room-but btn">Play</button>
+
+                <!-- open costume closet -->
+                <button class="room-but btn">Costumes</button> 
+            </div>
+
+        </section>
+
+        <!-- under room content -->
+        <div class="Under-room-content">
+        <p> <img class="pet-icon float" src="../public/sprites/pet_icon_base.png" alt="Pet head icon"> <!--icon should float left-->You have <span class="score">0000</span> points with <span class="Pet-Name">Pet-Name</span></p>
+        <p>Check where you rank on the <a href="leader-page.html">leaderboard</a>!</p>
+        </div>
+    
+        </div> <!-- end of play-content -->
+
+        </div><!-- end of play-page-content -->
+
+        <hr/><!-- don't forget to hide later -->
+    </main>
+
+    <footer>
+       
+        <div class="footer-content">
+        <p class="footerp">PetPet has a <a href="https://github.com/StargazerSwing955/260startup?tab=readme-ov-file">GitHub Repository</a></p>
+        <p class="footerp">Sarah Kennedy</p>
+        </div>
+       
+    </footer>
+
+</body>
+
+</html>
