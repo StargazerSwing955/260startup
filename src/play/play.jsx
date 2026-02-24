@@ -29,7 +29,7 @@ export function Play({user}) {
 
             {/* <!-- pet itself --> */}
               <div className="pet-box"> {/* <!--box for holding pet's hostage /j (for styling sprite relative to container) --> */}
-            <img className="pet-sprite" src="../sprites(old)/pet_base_sprite.png" alt="Pet base sprite"/>
+            <img className="pet-sprite" src="../pet_sprite/IMG_4031.png" alt="Pet base sprite"/>
             </div>
 
             {/* <!-- might put this outside the room itself --> */}
@@ -46,7 +46,7 @@ export function Play({user}) {
 
         {/* <!-- under room content --> */}
         <div className="Under-room-content">
-        <p> <img className="pet-icon float" src="../sprites/pet_icon_base.png" alt="Pet head icon"/> {/* <!--icon should float left-->*/}You have <span className="score">0000</span> points with <span className="Pet-Name">Pet-Name</span></p> 
+        <p> <img className="pet-icon float" src="../pet_sprite/pet_icon_base.png" alt="Pet head icon"/> {/* <!--icon should float left-->*/}You have <span className="score">0000</span> points with <span className="Pet-Name">Pet-Name</span></p> 
         <p>Check where you rank on the <NavLink to='/leaderboard'>leaderboard</NavLink>!</p>
         </div>
     
