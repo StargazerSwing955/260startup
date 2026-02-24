@@ -42,8 +42,8 @@ export default function App() {
     </header>
 
     <Routes>
-     <Route path='/' element={<Login />} exact />
-     <Route path='/play' element={<Play />} />
+     <Route path='/' element={<Login setUser={setUser} />} exact />
+     <Route path='/play' element={<Play user={user}/>} />
      <Route path='/leaderboard' element={<Leaderboard />} />
      <Route path='/about' element={<About />} />
      <Route path='*' element={<NotFound />} />

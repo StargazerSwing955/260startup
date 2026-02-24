@@ -1,7 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-export function Play() {
+export function Play({user}) {
+
+
+
+
   return (
    <main>
 
@@ -13,6 +17,8 @@ export function Play() {
             
         </ul>
 
+        <p>Welcome back, {user?.username || "Guest"}!</p>
+
         <div className="play-content">
 
         <section className="pet-room">
@@ -23,7 +29,7 @@ export function Play() {
 
             {/* <!-- pet itself --> */}
               <div className="pet-box"> {/* <!--box for holding pet's hostage /j (for styling sprite relative to container) --> */}
-            <img className="pet-sprite" src="../sprites/pet_base_sprite.png" alt="Pet base sprite"/>
+            <img className="pet-sprite" src="../sprites(old)/pet_base_sprite.png" alt="Pet base sprite"/>
             </div>
 
             {/* <!-- might put this outside the room itself --> */}
