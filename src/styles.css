@@ -99,7 +99,7 @@ main {
 /* button */
 
 button{
-    margin: 10px;
+    margin: 20px;
     scale: 125%;
     background-color: #d0acf5;
     border-style: none;
@@ -217,9 +217,9 @@ th{
 }
 
 .about-banner{
-    background-color: #9563c6;
     width: 75vw;
-    height: 50px;
+    height:auto;
+    margin: 10px;
 }
 
 
@@ -248,6 +248,10 @@ th{
     gap: 5px;
 }
 
+
+.pet-sprite{
+    scale: 175%;
+}
 .pet-room{ 
     /* originally scaled for 300px vw */
     margin: 15px;
