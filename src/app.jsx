@@ -9,6 +9,9 @@ import { Leaderboard } from './leaderboard/leader';
 import { About } from './about/about';
 
 export default function App() {
+    const [user, setUser] = React.useState(null);
+
+
 
   return ( 
     <BrowserRouter>
@@ -21,6 +24,7 @@ export default function App() {
                     <li className="nav-item">
                         <NavLink to='/'>Login</NavLink>
                     </li>
+                    {user && <>
                     <li className="nav-item">
                         <NavLink to='play'>Play</NavLink>
                     </li>
@@ -30,7 +34,9 @@ export default function App() {
                     <li className="nav-item">
                         <NavLink to='about'>About</NavLink>
                     </li>
+                    </>}
                 </ul>
+                
             </nav>
         </div>
     </header>
