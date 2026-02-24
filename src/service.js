@@ -3,7 +3,7 @@ export function getQuote() {
 }
 
 const quotes = [
-  "I am learning.",
-  "I am learning more.",
-  "I am learning even more."
+  {"text": "I am learning.", "author":"h"},
+  {"text": "I am learning more.", "author":"a"},
+  {"text": "I am learning even more.", "author":"j"}
 ]

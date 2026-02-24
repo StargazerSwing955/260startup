@@ -2,7 +2,7 @@ import React from 'react';
 import { getQuote } from '../service';
 
 export function About() {
-  const [quote,setQuote] = React.useState("I am learning.")
+  const [quote,setQuote] = React.useState(getQuote())
 
   const changeQuote = () => {
     setQuote(getQuote())
@@ -19,7 +19,8 @@ export function About() {
 
         <p>PetPet is a simple pet simulator based on Shimegjis and classic idle games like Cookie Clicker.</p>
 
-        <p className="quote">{quote}</p>
+        <p className="quote">{quote.text}</p>
+         <p className="quote">- {quote.author}</p>
         <button onClick={changeQuote}>quote</button>
 
         
