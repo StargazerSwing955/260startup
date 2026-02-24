@@ -64,3 +64,16 @@ export default function App() {
 function NotFound(){
     return <main>404 unknown address</main>
 }
+
+// Things I need to set up in JSX, but don't know where to put
+/*
+
+Quote randomizer (to be done with the about page)
+pet_state - including name (change when selecting span in room label) and current costume
+Costume array - array of arrays containing [sprite, icon] that can then be iterated on to determine what costume should be displayed 
+play functions
+player login - and tying it to pet_state
+Score and score counter - figure out how to do scoring with the single thread
+appending scores to the leaderboard
+
+*/
