@@ -1,9 +1,17 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { setCostume, updateScore } from '../service';
 
 export function Play({user, petState, score}) {
-
-
+  
+  //play functions calling to service
+  nextCostume = () => {
+    setCostume(score, petState.sprite, petState.icon)
+  }
+  playMode = () => {
+    updateScore(score)
+  } 
+ 
 
 
   return (
@@ -36,10 +44,10 @@ export function Play({user, petState, score}) {
             <div className="room-buttons">
 
                 {/* <!--start minigame where mouse is a laser pointer --> */}
-                <button className="room-but btn">Play</button>
+                <button className="room-but btn" onClick={playMode}>Play</button>
 
                 {/* <!-- open costume closet --> */}
-                <button className="room-but btn">Costumes</button> 
+                <button className="room-but btn" onClick={nextCostume}>Costumes</button> 
             </div>
 
         </section>

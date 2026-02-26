@@ -43,7 +43,7 @@ export default function App() {
 
     <Routes>
      <Route path='/' element={<Login setUser={setUser} />} exact />
-     <Route path='/play' element={<Play user={user} petState={petState} score={score} setScore={setScore} />} />
+     <Route path='/play' element={<Play user={user} petState={petState} setPetState={setPetState} score={score} setScore={setScore} />} />
      <Route path='/leaderboard' element={<Leaderboard user={user} petState={petState} score={score} setScore={setScore} />} />
      <Route path='/about' element={<About />} />
      <Route path='*' element={<NotFound />} />

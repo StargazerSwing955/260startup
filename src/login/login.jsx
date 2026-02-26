@@ -1,22 +1,27 @@
 import React from 'react';
 import{login, register} from '../service';
+import { useNavigate } from 'react-router-dom';
 
 export function Login({setUser}) {
   
+    //login and register function calls and definitions
   const loginUser = () => {
     if (login(username, password)) {
       setUser({username: username, password: password})
+      useNavigate('/play')
     }
   }  
 
   const registerUser = () => {
     if (register(username, password)) {
       setUser({username: username, password: password})
+      useNavigate('/play')
     }
   }
 
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
+
 
     return (
      <main>

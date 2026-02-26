@@ -2,6 +2,8 @@ import React from 'react';
 import { getQuote } from '../service';
 
 export function About() {
+  
+  //quote function call and definition
   const [quote,setQuote] = React.useState(getQuote())
 
   const changeQuote = () => {
