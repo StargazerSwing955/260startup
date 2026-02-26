@@ -22,22 +22,31 @@ export function login(username, password) {
     return false;
 }
 
-
 export function setCostume(score, sprite, icon) {
     //iterate through an array with all the sprite and icon options(???)
     //check the score and send back if meets required value || end of array
-    //setPetState()
+    
+    if (score < costumes[index].requiredScore || index === costumes.length - 1) {
+        index = 0;
+    }
+    else{
+        index++;
+    }
+    
+    setPetState(sprite=costumes[index].bodySprite, icon=costumes[index].headIcon) //i think
 }
 
-const costumes = [
-    {"sprite": "..\pet_sprites\base_cat.png", "icon": "..\pet_sprites\base_icon.png"},
-    {"sprite": "..\pet_sprites\black_cat.png", "icon": "..\pet_sprites\black_icon.png"},
-    {"sprite": "..\pet_sprites\orange_cat.png", "icon": "..\pet_sprites\orange_icon.png"},
-    {"sprite": "..\pet_sprites\tux_cat.png", "icon": "..\pet_sprites\tux_icon.png"},
-    {"sprite": "..\pet_sprites\crown_cat.png", "icon": "..\pet_sprites\crown_icon.png"}
+
+const costumes = [ //given different names to avoid confusion
+    {"bodySprite": "..\pet_sprites\base_cat.png", "headIcon": "..\pet_sprites\base_icon.png", "requiredScore": 0},
+    {"bodySprite": "..\pet_sprites\black_cat.png", "headIcon": "..\pet_sprites\black_icon.png", "requiredScore": 100},
+    {"bodySprite": "..\pet_sprites\orange_cat.png", "headIcon": "..\pet_sprites\orange_icon.png", "requiredScore": 250},
+    {"bodySprite": "..\pet_sprites\tux_cat.png", "headIcon": "..\pet_sprites\tux_icon.png", "requiredScore": 500},
+    {"bodySprite": "..\pet_sprites\crown_cat.png", "headIcon": "..\pet_sprites\crown_icon.png", "requiredScore": 1000}
 ]
 
-export function updateScore(points) {
+export function updateScore(score) {
     //when a certain amount of time has passed, add like 10 points
-    //setScore(score++)
+    timeout(() => setScore(score + 10), 10000)
 }
+
