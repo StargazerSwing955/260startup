@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-export function Play({user, petState}) {
+export function Play({user, petState, score}) {
 
 
 
@@ -25,7 +25,7 @@ export function Play({user, petState}) {
 
             <h2 className="pet-room-name"><span className="Pet-Name">{petState.petName}</span>&apos;s room!</h2> 
             {/* <!-- likely auto gen a name at first --> */}
-            <p className="score-topleft">Score: <span className="score">0000</span></p>
+            <p className="score-topleft">Score: <span className="score">{score}</span></p>
 
             {/* <!-- pet itself --> */}
               <div className="pet-box"> {/* <!--box for holding pet's hostage /j (for styling sprite relative to container) --> */}
@@ -46,7 +46,7 @@ export function Play({user, petState}) {
 
         {/* <!-- under room content --> */}
         <div className="Under-room-content">
-        <p> <img className="pet-icon float" src="..\pet_sprites\base_icon.png" alt="Pet head icon"/> {/* <!--icon should float left-->*/}You have <span className="score">0000</span> points with <span className="Pet-Name">Pet-Name</span></p> 
+        <p> <img className="pet-icon float" src="..\pet_sprites\base_icon.png" alt="Pet head icon"/> {/* <!--icon should float left-->*/}You have <span className="score">{score}</span> points with <span className="Pet-Name">Pet-Name</span></p> 
         <p>Check where you rank on the <NavLink to='/leaderboard'>leaderboard</NavLink>!</p>
         </div>
     

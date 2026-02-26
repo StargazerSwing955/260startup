@@ -23,4 +23,13 @@ export function login(username, password) {
 }
 
 
+export function setCostume(score, sprite, icon) {
+    //iterate through an array with all the sprite and icon options(???)
+    //check the score and send back if meets required value || end of array
+    //setPetState()
+}
 
+export function updateScore(points) {
+    //when a certain amount of time has passed, add like 10 points
+    //setScore(score++)
+}
