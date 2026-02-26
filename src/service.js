@@ -29,6 +29,14 @@ export function setCostume(score, sprite, icon) {
     //setPetState()
 }
 
+const costumes = [
+    {"sprite": "..\pet_sprites\base_cat.png", "icon": "..\pet_sprites\base_icon.png"},
+    {"sprite": "..\pet_sprites\black_cat.png", "icon": "..\pet_sprites\black_icon.png"},
+    {"sprite": "..\pet_sprites\orange_cat.png", "icon": "..\pet_sprites\orange_icon.png"},
+    {"sprite": "..\pet_sprites\tux_cat.png", "icon": "..\pet_sprites\tux_icon.png"},
+    {"sprite": "..\pet_sprites\crown_cat.png", "icon": "..\pet_sprites\crown_icon.png"}
+]
+
 export function updateScore(points) {
     //when a certain amount of time has passed, add like 10 points
     //setScore(score++)

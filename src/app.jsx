@@ -10,7 +10,7 @@ import { About } from './about/about';
 
 export default function App() {
     const [user, setUser] = React.useState(null);
-    const [petState, setPetState] = React.useState({"petName": "Brian"/*Pet-Name*/, "sprite": "base", "icon": "base"});
+    const [petState, setPetState] = React.useState({"petName": "Brian"/*Pet-Name*/, "sprite": "..\pet_sprites\base_cat.png", "icon": "..\pet_sprites\base_cat_icon.png"});
     const [score, setScore] = React.useState(0);
 
   return ( 
