@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-export function Play({user}) {
+export function Play({user, petState}) {
 
 
 
@@ -23,7 +23,7 @@ export function Play({user}) {
 
         <section className="pet-room">
 
-            <h2 className="pet-room-name"><span className="Pet-Name">Pet-Name</span>&apos;s room!</h2> 
+            <h2 className="pet-room-name"><span className="Pet-Name">{petState.petName}</span>&apos;s room!</h2> 
             {/* <!-- likely auto gen a name at first --> */}
             <p className="score-topleft">Score: <span className="score">0000</span></p>
 

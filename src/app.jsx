@@ -10,8 +10,8 @@ import { About } from './about/about';
 
 export default function App() {
     const [user, setUser] = React.useState(null);
-
-
+    const [petState, setPetState] = React.useState({"petName": "Brian"/*Pet-Name*/, "sprite": "base", "icon": "base"});
+    const [score, setScore] = React.useState(0);
 
   return ( 
     <BrowserRouter>
@@ -43,8 +43,8 @@ export default function App() {
 
     <Routes>
      <Route path='/' element={<Login setUser={setUser} />} exact />
-     <Route path='/play' element={<Play user={user}/>} />
-     <Route path='/leaderboard' element={<Leaderboard />} />
+     <Route path='/play' element={<Play user={user} petState={petState} score={score} setScore={setScore} />} />
+     <Route path='/leaderboard' element={<Leaderboard user={user} petState={petState} score={score} setScore={setScore} />} />
      <Route path='/about' element={<About />} />
      <Route path='*' element={<NotFound />} />
     </Routes>
