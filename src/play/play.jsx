@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { changeCostume, updateScore } from '../service';
+import { changeCostume, updateScore, randomScore } from '../service';
 
 
 export function Play({user, petState, setPetState, score, setScore}) {
@@ -12,6 +12,10 @@ export function Play({user, petState, setPetState, score, setScore}) {
   const playMode = () => {
     setScore(updateScore(score))
   } 
+
+  const petPet = () => {
+    setScore(randomScore(score))
+  }
  
 
   return (
@@ -20,9 +24,7 @@ export function Play({user, petState, setPetState, score, setScore}) {
         <div className="play-page-content">
         <ul className="notification-list"> {/*<!-- class name lengthed to prevent confusion --> */}
             <li className="notification">Brian has unlocked the tuxedo pet!</li>
-            <li className="notification">Friend has reached 5000 points!</li> 
-            {/* <!-- Points will likely be given a silly name later --> */}
-            
+            <li className="notification">Friend has reached 5000 points!</li>  
         </ul>
 
         <p>Welcome back, {user?.username || "Guest"}!</p>
@@ -36,7 +38,7 @@ export function Play({user, petState, setPetState, score, setScore}) {
             <p className="score-topleft">Score: <span className="score">{score}</span></p>
 
             {/* <!-- pet itself --> */}
-              <div className="pet-box"> {/* <!--box for holding pet's hostage /j (for styling sprite relative to container) --> */}
+              <div className="pet-box" onClick={petPet}> {/* <!--box for holding pet's hostage /j (for styling sprite relative to container) --> */}
             <img className="pet-sprite" src={petState.sprite} alt="Pet base sprite"/>
             </div>
 

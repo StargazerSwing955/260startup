@@ -51,4 +51,10 @@ export function updateScore(score) {
     score += 10
     return score
 }
-
+export function randomScore(score) {
+    const randomPoints = Math.floor(Math.random() * 10) + 1; // Random points between 1 and 10
+    if (randomPoints <= 5) {
+        score += randomPoints; // Add points to score
+    } 
+    return score;
+}
