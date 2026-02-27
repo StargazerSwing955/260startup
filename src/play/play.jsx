@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { changeCostume, updateScore, randomScore } from '../service';
-
+import { delay, GameEvent, GameNotifier } from './notifications';
 
 export function Play({user, petState, setPetState, score, setScore}) {
   
@@ -21,8 +21,12 @@ export function Play({user, petState, setPetState, score, setScore}) {
     document.querySelector(".pet-box").classList.add("isPetted");
   }}
 
-
- 
+  React.useEffect(() => {
+    setInterval(() => {
+    const leaderItem = {"icon": petState.icon, "username": user?.username, "score": score}
+    localStorage.setItem('leaderboard', JSON.stringify([leaderItem]));
+    }, 1000)
+  },[])
 
   return (
    <main>

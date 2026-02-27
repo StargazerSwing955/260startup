@@ -20,12 +20,13 @@ export function Leaderboard({user, petState, score, setScore}) {
 
   const scoreRows = [];
   if (leaderboard.length) {
+    console.log(leaderboard);
     for (const [i, leaderboardEntry] of leaderboard.entries()) {
       scoreRows.push(
         <tr key={i}>
-          <td>{i}</td>
-          <td>{leaderboardEntry.petState.icon}</td>
-          <td>{leaderboardEntry.user.username}</td>
+          <td>{i+1}</td>
+          <td><img className="pet-icon" src={leaderboardEntry.icon} alt="Pet icon"/></td>
+          <td>{leaderboardEntry.username}</td>
           <td>{leaderboardEntry.score}</td>
         </tr>
       );
@@ -53,7 +54,6 @@ export function Leaderboard({user, petState, score, setScore}) {
             </tr>
             </thead>
              <tbody id='scores'>{scoreRows}</tbody>
-             {console.log(scoreRows)}
 
             {/* filler */}
             {/* <tbody>
