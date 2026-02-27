@@ -6,9 +6,37 @@ import React from 'react';
 export function Leaderboard({user, petState, score, setScore}) {
 
     const [leaderboard,setLeader] = React.useState([]);
+    //each row should be {index+1, icon, username, score}
 
-    //need a function that appends pet icon, username, and score to leaderboard array
+    //need a function that appends rows to array and sorts by score
 
+  // copied from simon
+    React.useEffect(() => {
+    const scoresText = localStorage.getItem('leaderboard');
+    if (scoresText) {
+      setLeader(JSON.parse(scoresText));
+    }
+  }, []);
+
+  const scoreRows = [];
+  if (leaderboard.length) {
+    for (const [i, leaderboardEntry] of leaderboard.entries()) {
+      scoreRows.push(
+        <tr key={i}>
+          <td>{i}</td>
+          <td>{leaderboardEntry.petState.icon}</td>
+          <td>{leaderboardEntry.user.username}</td>
+          <td>{leaderboardEntry.score}</td>
+        </tr>
+      );
+    }
+  } else {
+    scoreRows.push(
+      <tr key='0'>
+        <td colSpan='4'>Be the first to score</td>
+      </tr>
+    );
+  }
 
   return (
      <main>
@@ -24,7 +52,8 @@ export function Leaderboard({user, petState, score, setScore}) {
                 <th>Score</th>
             </tr>
             </thead>
-
+             <tbody id='scores'>{scoreRows}</tbody>
+             {console.log(scoreRows)}
 
             {/* filler */}
             {/* <tbody>
