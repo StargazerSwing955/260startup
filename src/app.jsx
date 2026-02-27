@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 
-import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, NavLink, Route, Routes, useNavigate } from 'react-router-dom';
 import { Login } from './login/login';
 import { Play } from './play/play';
 import { Leaderboard } from './leaderboard/leader';
@@ -10,7 +10,7 @@ import { About } from './about/about';
 
 export default function App() {
     const [user, setUser] = React.useState(null);
-    const [petState, setPetState] = React.useState({"petName": "Brian"/*Pet-Name*/, "sprite": "..\pet_sprites\base_cat.png", "icon": "..\pet_sprites\base_cat_icon.png"});
+    const [petState, setPetState] = React.useState({"petName": "Brian"/*Pet-Name*/, "sprite": "../pet_sprites/base_cat.png", "icon": "../pet_sprites/base_icon.png"});
     const [score, setScore] = React.useState(0);
 
   return ( 

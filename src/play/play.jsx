@@ -1,18 +1,18 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { setCostume, updateScore } from '../service';
+import { changeCostume, updateScore } from '../service';
 
-export function Play({user, petState, score}) {
+
+export function Play({user, petState, setPetState, score, setScore}) {
   
   //play functions calling to service
-  nextCostume = () => {
-    setCostume(score, petState.sprite, petState.icon)
+  const nextCostume =() => {
+    setPetState(changeCostume(score, petState.sprite, petState.icon, petState.petName))
   }
-  playMode = () => {
-    updateScore(score)
+  const playMode = () => {
+    setScore(updateScore(score))
   } 
  
-
 
   return (
    <main>

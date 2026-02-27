@@ -178,10 +178,6 @@ button:hover{
     scale: 25%;
 } */
 
-.pet-sprite:hover{ /* placeholder so I feel like you can pet it */
-    transform: scale(-1, 1);
-}
-
 .room-buttons{ /* grid doesn't like these for some reason */
     grid-row: 3;
     grid-column: 1;

@@ -1,3 +1,4 @@
+
 export function getQuote() {
   return quotes[Math.floor(Math.random() * quotes.length)];
 }
@@ -22,31 +23,32 @@ export function login(username, password) {
     return false;
 }
 
-export function setCostume(score, sprite, icon) {
+export function changeCostume(score, sprite, icon, petName) {
     //iterate through an array with all the sprite and icon options(???)
     //check the score and send back if meets required value || end of array
-    
-    if (score < costumes[index].requiredScore || index === costumes.length - 1) {
+    let index = costumes.findIndex(costume => costume.bodySprite === sprite && costume.headIcon === icon)
+    if (score < costumes[index+1].requiredScore || index === costumes.length - 1 || score === 0) {
         index = 0;
     }
     else{
         index++;
     }
     
-    setPetState(sprite=costumes[index].bodySprite, icon=costumes[index].headIcon) //i think
+    return {"petName": petName, "sprite": costumes[index].bodySprite, "icon": costumes[index].headIcon}
 }
 
 
 const costumes = [ //given different names to avoid confusion
-    {"bodySprite": "..\pet_sprites\base_cat.png", "headIcon": "..\pet_sprites\base_icon.png", "requiredScore": 0},
-    {"bodySprite": "..\pet_sprites\black_cat.png", "headIcon": "..\pet_sprites\black_icon.png", "requiredScore": 100},
-    {"bodySprite": "..\pet_sprites\orange_cat.png", "headIcon": "..\pet_sprites\orange_icon.png", "requiredScore": 250},
-    {"bodySprite": "..\pet_sprites\tux_cat.png", "headIcon": "..\pet_sprites\tux_icon.png", "requiredScore": 500},
-    {"bodySprite": "..\pet_sprites\crown_cat.png", "headIcon": "..\pet_sprites\crown_icon.png", "requiredScore": 1000}
+    {"bodySprite": "../pet_sprites/base_cat.png", "headIcon": "../pet_sprites/base_icon.png", "requiredScore": 0},
+    {"bodySprite": "../pet_sprites/black_cat.png", "headIcon": "../pet_sprites/black_icon.png", "requiredScore": 100},
+    {"bodySprite": "../pet_sprites/orange_cat.png", "headIcon": "../pet_sprites/orange_icon.png", "requiredScore": 250},
+    {"bodySprite": "../pet_sprites/tux_cat.png", "headIcon": "../pet_sprites/tux_icon.png", "requiredScore": 500},
+    {"bodySprite": "../pet_sprites/crown_cat.png", "headIcon": "../pet_sprites/crown_icon.png", "requiredScore": 1000}
 ]
 
 export function updateScore(score) {
     //when a certain amount of time has passed, add like 10 points
-    timeout(() => setScore(score + 10), 10000)
+    score += 10
+    return score
 }
 

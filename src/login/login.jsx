@@ -1,6 +1,6 @@
 import React from 'react';
 import{login, register} from '../service';
-import { useNavigate } from 'react-router-dom';
+
 
 export function Login({setUser}) {
   
@@ -8,14 +8,12 @@ export function Login({setUser}) {
   const loginUser = () => {
     if (login(username, password)) {
       setUser({username: username, password: password})
-      useNavigate('/play')
     }
   }  
 
   const registerUser = () => {
     if (register(username, password)) {
       setUser({username: username, password: password})
-      useNavigate('/play')
     }
   }
 
