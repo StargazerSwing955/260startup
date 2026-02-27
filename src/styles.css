@@ -177,6 +177,9 @@ button:hover{
 /* .pet-sprite{ 
     scale: 25%;
 } */
+.isPetted{
+    transform: scaleX(-1);
+}
 
 .room-buttons{ /* grid doesn't like these for some reason */
     grid-row: 3;

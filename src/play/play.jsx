@@ -15,7 +15,13 @@ export function Play({user, petState, setPetState, score, setScore}) {
 
   const petPet = () => {
     setScore(randomScore(score))
-  }
+    if (document.querySelector(".pet-box").classList.contains("isPetted")) {
+        document.querySelector(".pet-box").classList.remove("isPetted");
+    }else{
+    document.querySelector(".pet-box").classList.add("isPetted");
+  }}
+
+
  
 
   return (
@@ -33,7 +39,7 @@ export function Play({user, petState, setPetState, score, setScore}) {
 
         <section className="pet-room">
 
-            <h2 className="pet-room-name"><span className="Pet-Name">{petState.petName}</span>&apos;s room!</h2> 
+            <h2 className="pet-room-name"><span className="Pet-Name" >{petState.petName}</span>&apos;s room!</h2> 
             {/* <!-- likely auto gen a name at first --> */}
             <p className="score-topleft">Score: <span className="score">{score}</span></p>
 
@@ -56,7 +62,7 @@ export function Play({user, petState, setPetState, score, setScore}) {
 
         {/* <!-- under room content --> */}
         <div className="Under-room-content">
-        <p> <img className="pet-icon float" src={petState.icon} alt="Pet head icon"/> {/* <!--icon should float left-->*/}You have <span className="score">{score}</span> points with <span className="Pet-Name">Pet-Name</span></p> 
+        <p> <img className="pet-icon float" src={petState.icon} alt="Pet head icon"/> {/* <!--icon should float left-->*/}You have <span className="score">{score}</span> points with <span className="Pet-Name">{petState.petName}</span></p> 
         <p>Check where you rank on the <NavLink to='/leaderboard'>leaderboard</NavLink>!</p>
         </div>
     

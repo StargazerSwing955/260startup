@@ -23,11 +23,12 @@ export function login(username, password) {
     return false;
 }
 
+
 export function changeCostume(score, sprite, icon, petName) {
     //iterate through an array with all the sprite and icon options(???)
     //check the score and send back if meets required value || end of array
     let index = costumes.findIndex(costume => costume.bodySprite === sprite && costume.headIcon === icon)
-    if (score < costumes[index+1].requiredScore || index === costumes.length - 1 || score === 0) {
+    if (index === costumes.length - 1 ||score < costumes[index+1].requiredScore ||  score === 0) {
         index = 0;
     }
     else{
@@ -37,12 +38,12 @@ export function changeCostume(score, sprite, icon, petName) {
     return {"petName": petName, "sprite": costumes[index].bodySprite, "icon": costumes[index].headIcon}
 }
 
-
 const costumes = [ //given different names to avoid confusion
     {"bodySprite": "../pet_sprites/base_cat.png", "headIcon": "../pet_sprites/base_icon.png", "requiredScore": 0},
     {"bodySprite": "../pet_sprites/black_cat.png", "headIcon": "../pet_sprites/black_icon.png", "requiredScore": 100},
     {"bodySprite": "../pet_sprites/orange_cat.png", "headIcon": "../pet_sprites/orange_icon.png", "requiredScore": 250},
     {"bodySprite": "../pet_sprites/tux_cat.png", "headIcon": "../pet_sprites/tux_icon.png", "requiredScore": 500},
+    {"bodySprite": "../pet_sprites/calico_cat.png", "headIcon": "../pet_sprites/calico_icon.png", "requiredScore": 750},
     {"bodySprite": "../pet_sprites/crown_cat.png", "headIcon": "../pet_sprites/crown_icon.png", "requiredScore": 1000}
 ]
 
