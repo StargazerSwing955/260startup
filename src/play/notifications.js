@@ -1,11 +1,7 @@
-//copied from Simon
+import { costumes } from "../service";
 
-export function delay(milliseconds) {
-  return new Promise((resolve) => {
-    setTimeout(resolve, milliseconds);
-  });
-}
 
+//mostly copied from Simon
 
 const GameEvent = {
 //   System: 'system',
@@ -30,10 +26,9 @@ class GameEventNotifier {
   constructor() {
     // Simulate chat messages that will eventually come over WebSocket
     setInterval(() => {
-      const score = Math.floor(Math.random() * 3000);
-      const date = new Date().toLocaleDateString();
+      const cosName = costumes[Math.floor(Math.random() * costumes.length)].name;
       const userName = 'Eich';
-      this.broadcastEvent(userName, GameEvent.Score, { name: userName, score: score});
+      this.broadcastEvent(userName, GameEvent.Costume, { name: userName, costume: cosName});
     }, 5000);
   }
 

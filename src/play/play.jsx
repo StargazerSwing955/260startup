@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { changeCostume, updateScore, randomScore } from '../service';
-import { delay, GameEvent, GameNotifier } from './notifications';
+import { Players } from './notifhandler';
 
 export function Play({user, petState, setPetState, score, setScore}) {
   
@@ -32,9 +32,9 @@ export function Play({user, petState, setPetState, score, setScore}) {
    <main>
 
         <div className="play-page-content">
+      
         <ul className="notification-list"> {/*<!-- class name lengthed to prevent confusion --> */}
-            <li className="notification">Brian has unlocked the tuxedo pet!</li>
-            <li className="notification">Friend has reached 5000 points!</li>  
+            <li className="notification"><Players /></li> 
         </ul>
 
         <p>Welcome back, {user?.username || "Guest"}!</p>
