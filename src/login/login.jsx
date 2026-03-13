@@ -5,22 +5,22 @@ import { Authenticated } from './authenticated';
 import { AuthState } from './authState';
 
 
-export function Login({setUser, onAuthChange}) {
+export function Login({setUser, authState, onAuthChange}) {
   
     //login and register function calls and definitions
-  // const loginUser = () => {
-  //   if (login(username, password)) {
-  //     setUser({username: username, password: password})
-  //   }
-  // }  
+  const loginUser = () => {
+    if (login(username, password)) {
+      setUser({username: username, password: password})
+    }
+  }  
 
-  // const registerUser = () => {
-  //   if (register(username, password)) {
-  //     setUser({username: username, password: password})
-  //   }
-  // }
+  const registerUser = () => {
+    if (register(username, password)) {
+      setUser({username: username, password: password})
+    }
+  }
 
-  const [username, setUsername] = React.useState("");
+  const [username, setusername] = React.useState("");
   const [password, setPassword] = React.useState("");
 
 
@@ -30,28 +30,28 @@ export function Login({setUser, onAuthChange}) {
         {authState !== AuthState.Unknown && <h2>PetPet Login</h2>}
 
         <div className="input username">
-            <span>Username:</span>
-            <input type="text" placeholder="Username" onChange={(e) => setUsername(e.target.value)}/>
+            <span>username:</span>
+            <input type="text" placeholder="username" onChange={(e) => setusername(e.target.value)}/>
         </div>
         <div className="input password">
             <span>Password:</span>
             <input type="text" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
         </div>
-        {authState === AuthState.Authenticated && (
-          <Authenticated userName={userName} onLogout={() => onAuthChange(userName, AuthState.Unauthenticated)} />
+        {/* {authState === AuthState.Authenticated && (
+          <Authenticated username={user.username} onLogout={() => onAuthChange(username, AuthState.Unauthenticated)} />
         )}
          {authState === AuthState.Unauthenticated && (
           <Unauthenticated
-            userName={userName}
-            onLogin={(loginUserName) => {
-              onAuthChange(loginUserName, AuthState.Authenticated);
+            username={username}
+            onLogin={(loginusername) => {
+              onAuthChange(loginusername, AuthState.Authenticated);
             }}
           />
-        )}
-        {/* <div className="submit-button">
+        )} */}
+        <div className="submit-button">
             <button onClick={registerUser}>Register</button>
             <button onClick={loginUser}>Login</button>
-        </div> */}
+        </div>
         
     </main>
   );

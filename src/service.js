@@ -1,4 +1,3 @@
-
 export function getQuote() {
     fetch('https://quote.cs260.click')
     .then((response) => response.json())
