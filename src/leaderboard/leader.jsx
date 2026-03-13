@@ -11,12 +11,13 @@ export function Leaderboard({user, petState, score, setScore}) {
   //need a function that appends rows to array and sorts by score
 
   // copied from simon
-    React.useEffect(() => {
-    const scoresText = localStorage.getItem('leaderboard');
-    if (scoresText) {
-      setLeader(JSON.parse(scoresText));
-    }
-  }, []);
+  //   React.useEffect(() => {
+  //   const scoresText = localStorage.getItem('leaderboard');
+  //   if (scoresText) {
+  //     setLeader(JSON.parse(scoresText));
+  //   }
+  // }, []);
+  
 
   const scoreRows = [];
   if (leaderboard.length) {
@@ -66,34 +67,7 @@ export function Leaderboard({user, petState, score, setScore}) {
             </thead>
              <tbody id='scores'>{scoreRows}</tbody>
 
-            {/* filler */}
-            {/* <tbody>
-                <tr>
-                    <td>1</td>
-                    <td><img className="pet-icon" src={petState.icon} alt="pet-icon"/></td>
-                    <td>Hailey</td>
-                    <td>9999</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td><img className="pet-icon" src={petState.icon} alt="pet-icon"/></td>
-                    <td>Brad</td>
-                    <td>9950</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td><img className="pet-icon" src={petState.icon} alt="pet-icon"/></td>
-                    <td>Friend</td>
-                    <td>5000</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td><img className="pet-icon" src={petState.icon} alt="pet-icon"/></td>
-                    <td>You</td>
-                    <td>{score}</td>
-                </tr>
-
-            </tbody> */}
+          
 
         </table>
           

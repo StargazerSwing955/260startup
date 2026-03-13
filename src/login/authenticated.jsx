@@ -15,11 +15,13 @@ const navigate = useNavigate();
         localStorage.removeItem('username');
         props.onLogout();
       });
+ 
+
   }
   return(
     <section className="authlogin">
     <h2>Welcome, {props.username}!</h2>
-    {/* <img className="pet-icon float" src={props.user.petState.icon} alt="Pet head icon"/>*/}
+    {/* <img className="pet-icon float" src={props.user.petState.icon} alt="Pet head icon"/> */}
     <div className="submit-button"> 
         <button onClick={logOut}>Log Out</button>
                 
