@@ -28,6 +28,7 @@ export function Login({setUser, authState, onAuthChange}) {
     }
   }
 
+  //not sure I still need these
   const [username, setusername] = React.useState("");
   const [password, setPassword] = React.useState("");
 

@@ -9,7 +9,7 @@ export function getQuote() {
 }
 
 
-
+//don't think I need these 
 export function register(username, password) {
     localStorage.setItem("user", JSON.stringify({username, password}))
     return true
@@ -23,7 +23,7 @@ export function login(username, password) {
     return false;
 }
 
-
+//play functions
 export function changeCostume(score, sprite, icon, petName) {
     //iterate through an array with all the sprite and icon options(???)
     //check the score and send back if meets required value || end of array
