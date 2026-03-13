@@ -8,8 +8,14 @@ import { Play } from './play/play';
 import { Leaderboard } from './leaderboard/leader';
 import { About } from './about/about';
 
+import { AuthState } from './login/authState';
+
 export default function App() {
-    const [user, setUser] = React.useState(null);
+    const [user, setUser] = React.useState(null); //username and score
+    const currentAuthState = user ? AuthState.Authenticated : AuthState.Unauthenticated;
+    const [authState, setAuthState] = React.useState(currentAuthState);
+
+
     const [petState, setPetState] = React.useState({"petName": "Brian"/*Pet-Name*/, "sprite": "../pet_sprites/base_cat.png", "icon": "../pet_sprites/base_icon.png"});
     const [score, setScore] = React.useState(0);
 
@@ -24,7 +30,8 @@ export default function App() {
                     <li className="nav-item">
                         <NavLink to='/'>Login</NavLink>
                     </li>
-                    {user && <>
+                    {/* add authState */}
+                    {user && <> 
                     <li className="nav-item">
                         <NavLink to='play'>Play</NavLink>
                     </li>

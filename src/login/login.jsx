@@ -6,8 +6,16 @@ import { AuthState } from './authState';
 
 
 export function Login({setUser, authState, onAuthChange}) {
+
+  //current known problems:
+  // not properly calling the back end; think it's getting there and not knowing what to do
+    //debugging is not helping
+  // user should be the username and score
+  // idk what I'm doing
   
-    //login and register function calls and definitions
+
+
+  //login and register function calls and definitions
   const loginUser = () => {
     if (login(username, password)) {
       setUser({username: username, password: password})
