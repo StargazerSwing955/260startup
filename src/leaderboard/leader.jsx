@@ -4,11 +4,11 @@ import React from 'react';
 
 
 export function Leaderboard({user, petState, score, setScore}) {
+  const[testItem, setTeststuff] = React.useState('before test');
+  const [leaderboard,setLeader] = React.useState([]);
+  //each row should be {index+1, icon, username, score}
 
-    const [leaderboard,setLeader] = React.useState([]);
-    //each row should be {index+1, icon, username, score}
-
-    //need a function that appends rows to array and sorts by score
+  //need a function that appends rows to array and sorts by score
 
   // copied from simon
     React.useEffect(() => {
@@ -40,13 +40,14 @@ export function Leaderboard({user, petState, score, setScore}) {
   }
 
   //test, this works
-  function testClick() {
+   /*function testClick() {
     fetch('/api/test')
     .then((response) => response.json())
     .then((testing) => {
       console.log(testing);
+      setTeststuff(testing.test);
     });
-  }
+  }*/
 
   return (
      <main>
@@ -95,8 +96,9 @@ export function Leaderboard({user, petState, score, setScore}) {
 
         </table>
           
-          {/* for testing */}
+          {/* for testing 
           <button onClick={testClick}>testing</button>
+          <div>{testItem}</div>*/}
     
     </main>
 
