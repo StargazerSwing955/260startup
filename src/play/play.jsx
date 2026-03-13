@@ -25,7 +25,7 @@ export function Play({user, petState, setPetState, score, setScore}) {
     setInterval(() => {
     const leaderItem = {"icon": petState.icon, "username": user?.username, "score": score}
     localStorage.setItem('leaderboard', JSON.stringify([leaderItem]));
-    }, 1000)
+    }, 200)
   },[])
 
   return (
