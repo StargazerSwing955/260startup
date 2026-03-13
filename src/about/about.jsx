@@ -1,13 +1,19 @@
 import React from 'react';
-import { getQuote } from '../service';
+// import { getQuote } from '../service';
 
 export function About() {
   
   //quote function call and definition
-  const [quote,setQuote] = React.useState(getQuote())
+  const [quote,setQuote] = React.useState({text: "Push button for a quote", author: "Unknown"})
 
-  const changeQuote = () => {
-    setQuote(getQuote())
+  function getQuote() {
+    fetch('https://quote.cs260.click')
+    .then((response) => response.json())
+    .then((data) => {
+    setQuote({text: data.quote, author: data.author});
+    
+    })
+    .catch();
   }
 
   return (
@@ -23,7 +29,7 @@ export function About() {
 
         <p className="quote">{quote.text}</p>
          <p className="quote">- {quote.author}</p>
-        <button onClick={changeQuote}>quote</button>
+        <button onClick={getQuote}>quote</button>
 
         
     </main>

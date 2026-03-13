@@ -1,7 +1,14 @@
 
 export function getQuote() {
-  return quotes[Math.floor(Math.random() * quotes.length)];
+    fetch('https://quote.cs260.click')
+    .then((response) => response.json())
+    .then((data) => {
+    setQuote({text: data.quote, author: data.author});
+    
+    })
+    .catch();
 }
+
 
 const quotes = [
   {"text": "I am learning.", "author":"h"},
