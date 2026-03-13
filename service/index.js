@@ -7,7 +7,7 @@ const app = express();
 
 const authCookieName = 'token';
 
-let users = [];
+let users = []; //users should consist of {username, password, petState, score} to then be easily displayed on leaderboard
 
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
 
@@ -31,6 +31,7 @@ apiRouter.post('/auth/create', async (req, res) => {
     res.send({ username: user.username });
   }
 });
+
 // GetAuth login an existing user
 apiRouter.post('/auth/login', async (req, res) => {
   const user = await findUser('username', req.body.username);
@@ -93,6 +94,12 @@ function setAuthCookie(res, authToken) {
     sameSite: 'strict',
   });
 }
+
+var testData = {test:'testing'};
+apiRouter.get('/test',(_req,res) => {
+  console.log('in test')
+  res.send(testData);
+});
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);

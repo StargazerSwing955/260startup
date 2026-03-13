@@ -39,6 +39,15 @@ export function Leaderboard({user, petState, score, setScore}) {
     );
   }
 
+  //test, this works
+  function testClick() {
+    fetch('/api/test')
+    .then((response) => response.json())
+    .then((testing) => {
+      console.log(testing);
+    });
+  }
+
   return (
      <main>
         
@@ -85,7 +94,9 @@ export function Leaderboard({user, petState, score, setScore}) {
             </tbody> */}
 
         </table>
-
+          
+          {/* for testing */}
+          <button onClick={testClick}>testing</button>
     
     </main>
 
