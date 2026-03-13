@@ -5,7 +5,7 @@ import { Authenticated } from './authenticated';
 import { AuthState } from './authState';
 
 
-export function Login({setUser, authState, onAuthChange}) {
+export function Login({user, setUser, authState, onAuthChange}) {
 
   //current known problems:
   // not properly calling the back end; think it's getting there and not knowing what to do
@@ -15,18 +15,18 @@ export function Login({setUser, authState, onAuthChange}) {
   
 
 
-  //login and register function calls and definitions
-  const loginUser = () => {
-    if (login(username, password)) {
-      setUser({username: username, password: password})
-    }
-  }  
+  //login and register function calls and definitions; front end
+  // const loginUser = () => {
+  //   if (login(username, password)) {
+  //     setUser({username: username, password: password})
+  //   }
+  // }  
 
-  const registerUser = () => {
-    if (register(username, password)) {
-      setUser({username: username, password: password})
-    }
-  }
+  // const registerUser = () => {
+  //   if (register(username, password)) {
+  //     setUser({username: username, password: password})
+  //   }
+  // }
 
   //not sure I still need these
   const [username, setusername] = React.useState("");
@@ -46,21 +46,22 @@ export function Login({setUser, authState, onAuthChange}) {
             <span>Password:</span>
             <input type="text" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
         </div>
-        {/* {authState === AuthState.Authenticated && (
-          <Authenticated username={user.username} onLogout={() => onAuthChange(username, AuthState.Unauthenticated)} />
+        {authState === AuthState.Authenticated && (
+          <Authenticated username={user.username} onLogout={() => onAuthChange(user, AuthState.Unauthenticated)} />
         )}
          {authState === AuthState.Unauthenticated && (
           <Unauthenticated
             username={username}
+            password={password}
             onLogin={(loginusername) => {
               onAuthChange(loginusername, AuthState.Authenticated);
             }}
           />
-        )} */}
-        <div className="submit-button">
+        )}
+        {/* <div className="submit-button">
             <button onClick={registerUser}>Register</button>
             <button onClick={loginUser}>Login</button>
-        </div>
+        </div> */}
         
     </main>
   );

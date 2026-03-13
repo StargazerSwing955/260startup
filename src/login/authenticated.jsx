@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'; 
+import React from 'react';
 
 export function Authenticated(props) {
 const navigate = useNavigate();
@@ -11,13 +12,15 @@ const navigate = useNavigate();
         // Logout failed. Assuming offline
       })
       .finally(() => {
-        localStorage.removeItem('userName');
+        localStorage.removeItem('username');
         props.onLogout();
       });
   }
+  return(
     <div className="submit-button">
-                <button onClick={logOut}>Log Out</button>
+        <button onClick={logOut}>Log Out</button>
                 
-                <button onClick={() => navigate('/play')}>Play</button>
-            </div>
+        <button onClick={() => navigate('/play')}>Play</button>
+    </div>
+    );
 }

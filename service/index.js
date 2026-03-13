@@ -7,7 +7,8 @@ const app = express();
 
 const authCookieName = 'token';
 
-let users = []; //users should consist of {username, password, petState, score} to then be easily displayed on leaderboard
+let users = []; 
+//users should consist of {username, password, petState, score} to then be easily displayed on leaderboard
 
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
 
@@ -56,6 +57,8 @@ apiRouter.delete('/auth/logout', async (req, res) => {
   res.status(204).end();
 });
 
+//user: {username, password, token}
+
 // Middleware to verify that the user is authorized to call an endpoint
 const verifyAuth = async (req, res, next) => {
   const user = await findUser('token', req.cookies[authCookieName]);
@@ -73,6 +76,8 @@ async function createUser(username, password) {
     username: username,
     password: passwordHash,
     token: uuid.v4(),
+    petState: {sprite: "../pet_sprites/base_cat.png", icon: "../pet_sprites/base_icon.png", petName: "Brian"},
+    score: 0,
   };
   users.push(user);
 
@@ -95,6 +100,7 @@ function setAuthCookie(res, authToken) {
   });
 }
 
+//test
 var testData = {test:'testing'};
 apiRouter.get('/test',(_req,res) => {
   console.log('in test')

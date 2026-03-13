@@ -11,7 +11,7 @@ import { About } from './about/about';
 import { AuthState } from './login/authState';
 
 export default function App() {
-    const [user, setUser] = React.useState(null); //username and score
+    const [user, setUser] = React.useState(null); //I'm not sure what this will be in the end yet
     const currentAuthState = user ? AuthState.Authenticated : AuthState.Unauthenticated;
     const [authState, setAuthState] = React.useState(currentAuthState);
 
@@ -30,7 +30,8 @@ export default function App() {
                     <li className="nav-item">
                         <NavLink to='/'>Login</NavLink>
                     </li>
-                    {/* add authState */}
+
+                    {/* add authState? */}
                     {user && <> 
                     <li className="nav-item">
                         <NavLink to='play'>Play</NavLink>
@@ -42,6 +43,7 @@ export default function App() {
                         <NavLink to='about'>About</NavLink>
                     </li>
                     </>}
+
                 </ul>
                 
             </nav>
@@ -49,9 +51,9 @@ export default function App() {
     </header>
 
     <Routes>
-     <Route path='/' element={<Login setUser={setUser} authState={authState} onAuthChange={(userName, authState) => {
-                  setAuthState(authState);
-                  setUserName(userName);
+     <Route path='/' element={<Login user={user} setUser={setUser} authState={authState} onAuthChange={(user, authState) => {
+                  setAuthState(authState)
+                  setUser(user);
                 }} />} exact />
      <Route path='/play' element={<Play user={user} petState={petState} setPetState={setPetState} score={score} setScore={setScore} />} />
      <Route path='/leaderboard' element={<Leaderboard user={user} petState={petState} score={score} setScore={setScore} />} />
