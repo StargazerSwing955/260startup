@@ -9,7 +9,7 @@ const navigate = useNavigate();
       method: 'delete',
     })
       .catch(() => {
-        // Logout failed. Assuming offline
+        console.log('Logout failed. Assuming offline');
       })
       .finally(() => {
         localStorage.removeItem('username');
@@ -17,10 +17,14 @@ const navigate = useNavigate();
       });
   }
   return(
-    <div className="submit-button">
+    <section className="authlogin">
+    <h2>Welcome, {props.username}!</h2>
+    {/* <img className="pet-icon float" src={props.user.petState.icon} alt="Pet head icon"/>*/}
+    <div className="submit-button"> 
         <button onClick={logOut}>Log Out</button>
                 
         <button onClick={() => navigate('/play')}>Play</button>
     </div>
+    </section>
     );
 }

@@ -57,7 +57,7 @@ apiRouter.delete('/auth/logout', async (req, res) => {
   res.status(204).end();
 });
 
-//user: {username, password, token}
+//user: username, password, token, petState, score
 
 // Middleware to verify that the user is authorized to call an endpoint
 const verifyAuth = async (req, res, next) => {
@@ -84,6 +84,8 @@ async function createUser(username, password) {
   return user;
 }
 
+
+
 async function findUser(field, value) {
   if (!value) return null;
 
@@ -101,11 +103,11 @@ function setAuthCookie(res, authToken) {
 }
 
 //test
-var testData = {test:'testing'};
-apiRouter.get('/test',(_req,res) => {
-  console.log('in test')
-  res.send(testData);
-});
+// var testData = {test:'testing'};
+// apiRouter.get('/test',(_req,res) => {
+//   console.log('in test')
+//   res.send(testData);
+// });
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);

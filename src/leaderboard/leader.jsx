@@ -49,6 +49,7 @@ export function Leaderboard({user, petState, score, setScore}) {
     });
   }*/
 
+
   return (
      <main>
         

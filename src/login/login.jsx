@@ -10,8 +10,7 @@ export function Login({user, setUser, authState, onAuthChange}) {
   //current known problems:
   // not properly calling the back end; think it's getting there and not knowing what to do
     //debugging is not helping
-  // user should be the username and score
-  // idk what I'm doing
+  //there's no user even when the authState says it's authenticated
   
 
 
@@ -28,31 +27,17 @@ export function Login({user, setUser, authState, onAuthChange}) {
   //   }
   // }
 
-  //not sure I still need these
-  const [username, setusername] = React.useState("");
-  const [password, setPassword] = React.useState("");
-
 
     return (
      <main>
       
         {authState !== AuthState.Unknown && <h2>PetPet Login</h2>}
-
-        <div className="input username">
-            <span>username:</span>
-            <input type="text" placeholder="username" onChange={(e) => setusername(e.target.value)}/>
-        </div>
-        <div className="input password">
-            <span>Password:</span>
-            <input type="text" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
-        </div>
+        
         {authState === AuthState.Authenticated && (
           <Authenticated username={user.username} onLogout={() => onAuthChange(user, AuthState.Unauthenticated)} />
         )}
          {authState === AuthState.Unauthenticated && (
           <Unauthenticated
-            username={username}
-            password={password}
             onLogin={(loginusername) => {
               onAuthChange(loginusername, AuthState.Authenticated);
             }}

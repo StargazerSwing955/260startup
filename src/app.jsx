@@ -11,7 +11,7 @@ import { About } from './about/about';
 import { AuthState } from './login/authState';
 
 export default function App() {
-    const [user, setUser] = React.useState(null); //I'm not sure what this will be in the end yet
+    const [user, setUser] = React.useState(null); //username, password, token, petState, score
     const currentAuthState = user ? AuthState.Authenticated : AuthState.Unauthenticated;
     const [authState, setAuthState] = React.useState(currentAuthState);
 
@@ -54,6 +54,7 @@ export default function App() {
      <Route path='/' element={<Login user={user} setUser={setUser} authState={authState} onAuthChange={(user, authState) => {
                   setAuthState(authState)
                   setUser(user);
+                  console.log(user);
                 }} />} exact />
      <Route path='/play' element={<Play user={user} petState={petState} setPetState={setPetState} score={score} setScore={setScore} />} />
      <Route path='/leaderboard' element={<Leaderboard user={user} petState={petState} score={score} setScore={setScore} />} />
@@ -83,15 +84,3 @@ function NotFound(){
     return <main>404 unknown address</main>
 }
 
-// Things I need to set up in JSX, but don't know where to put
-/*
-
-Quote randomizer (to be done with the about page) [done]
-pet_state - including name (change when selecting span in room label) and current costume
-Costume array - array of arrays containing [sprite, icon] that can then be iterated on to determine what costume should be displayed 
-play functions
-player login [done] - and tying it to pet_state
-Score and score counter - figure out how to do scoring with the single thread
-appending scores to the leaderboard
-
-*/
