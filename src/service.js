@@ -47,6 +47,8 @@ export const costumes = [ //given different names to avoid confusion
     {"name": "crown", "bodySprite": "../pet_sprites/crown_cat.png", "headIcon": "../pet_sprites/crown_icon.png", "requiredScore": 1000}
 ]
 
+
+
 export function updateScore(score) {
     //when a certain amount of time has passed, add like 10 points
     score += 10

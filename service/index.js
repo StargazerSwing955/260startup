@@ -26,21 +26,21 @@ apiRouter.post('/auth/create', async (req, res) => {
   if (await findUser('username', req.body.username)) {
     res.status(409).send({ msg: 'Existing user' });
   } else {
-    const user = await createUser(req.body.username, req.body.password);
+    const userInfo= await createUser(req.body.username, req.body.password);
 
-    setAuthCookie(res, user.token);
-    res.send({ username: user.username });
+    setAuthCookie(res, userInfo.token);
+    res.send({ username:userInfo.username });
   }
 });
 
 // GetAuth login an existing user
 apiRouter.post('/auth/login', async (req, res) => {
-  const user = await findUser('username', req.body.username);
-  if (user) {
-    if (await bcrypt.compare(req.body.password, user.password)) {
-      user.token = uuid.v4();
-      setAuthCookie(res, user.token);
-      res.send({ username: user.username });
+  const userInfo= await findUser('username', req.body.username);
+  if (userInfo) {
+    if (await bcrypt.compare(req.body.password, userInfo.password)) {
+     userInfo.token = uuid.v4();
+      setAuthCookie(res, userInfo.token);
+      res.send({ username: userInfo.username });
       return;
     }
   }
@@ -49,42 +49,55 @@ apiRouter.post('/auth/login', async (req, res) => {
 
 // DeleteAuth logout a user
 apiRouter.delete('/auth/logout', async (req, res) => {
-  const user = await findUser('token', req.cookies[authCookieName]);
-  if (user) {
-    delete user.token;
+  const userInfo = await findUser('token', req.cookies[authCookieName]);
+  if (userInfo) {
+    delete userInfo.token;
   }
   res.clearCookie(authCookieName);
   res.status(204).end();
 });
 
-//user: username, password, token, petState, score
 
 // Middleware to verify that the user is authorized to call an endpoint
 const verifyAuth = async (req, res, next) => {
-  const user = await findUser('token', req.cookies[authCookieName]);
-  if (user) {
+  const userInfo= await findUser('token', req.cookies[authCookieName]);
+  if (userInfo) {
     next();
   } else {
     res.status(401).send({ msg: 'Unauthorized' });
   }
 };
 
+//user: username, password, token, petState, score
+apiRouter.get('/data/user', verifyAuth, async (req, res) => {
+  const userInfo= await findUser('token', req.cookies[authCookieName]);
+  res.send({ username: userInfo.username, petState: userInfo.petState, score: userInfo.score });
+});
+
+apiRouter.get('/data/userList', async (req, res) => {
+  let leaderlist = [];
+  for (const u of users) {
+    leaderlist.push({ username: u.username, petState: u.petState, score: u.score });
+  }
+  leaderlist.sort((a, b) => b.score - a.score);
+  
+  res.send(leaderlist);
+});
+
 async function createUser(username, password) {
   const passwordHash = await bcrypt.hash(password, 10);
 
-  const user = {
+  const userInfo= {
     username: username,
     password: passwordHash,
     token: uuid.v4(),
     petState: {sprite: "../pet_sprites/base_cat.png", icon: "../pet_sprites/base_icon.png", petName: "Brian"},
     score: 0,
   };
-  users.push(user);
+  users.push(userInfo);
 
-  return user;
+  return userInfo;
 }
-
-
 
 async function findUser(field, value) {
   if (!value) return null;

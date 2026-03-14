@@ -16,12 +16,19 @@ const navigate = useNavigate();
         props.onLogout();
       });
  
-
   }
+  React.useEffect(() => {
+    fetch('/api/data/user')
+      .then((response) => response.json())
+      .then((userData) => {
+        props.setUser({ username: userData.username, petState: userData.petState, score: userData.score });
+        
+  });}, []);
+  
+  
   return(
     <section className="authlogin">
-    <h2>Welcome, {props.username}!</h2>
-    {/* <img className="pet-icon float" src={props.user.petState.icon} alt="Pet head icon"/> */}
+    <h2>Welcome, {props.user.username}!</h2>
     <div className="submit-button"> 
         <button onClick={logOut}>Log Out</button>
                 

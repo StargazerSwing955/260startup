@@ -34,7 +34,7 @@ export function Login({user, setUser, authState, onAuthChange}) {
         {authState !== AuthState.Unknown && <h2>PetPet Login</h2>}
         
         {authState === AuthState.Authenticated && (
-          <Authenticated username={user.username} onLogout={() => onAuthChange(user, AuthState.Unauthenticated)} />
+          <Authenticated user={user} setUser={setUser} onLogout={() => onAuthChange(user, AuthState.Unauthenticated)} />
         )}
          {authState === AuthState.Unauthenticated && (
           <Unauthenticated

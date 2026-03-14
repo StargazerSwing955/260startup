@@ -11,7 +11,7 @@ import { About } from './about/about';
 import { AuthState } from './login/authState';
 
 export default function App() {
-    const [user, setUser] = React.useState(null); //username, password, token, petState, score
+    const [user, setUser] = React.useState(null); //username, petState, score
     const currentAuthState = user ? AuthState.Authenticated : AuthState.Unauthenticated;
     const [authState, setAuthState] = React.useState(currentAuthState);
 

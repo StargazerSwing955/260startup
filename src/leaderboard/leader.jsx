@@ -4,8 +4,8 @@ import React from 'react';
 
 
 export function Leaderboard({user, petState, score, setScore}) {
-  const[testItem, setTeststuff] = React.useState('before test');
-  const [leaderboard,setLeader] = React.useState([]);
+  //const[testItem, setTeststuff] = React.useState('before test');
+  const [leaderboard, setLeader] = React.useState([]);
   //each row should be {index+1, icon, username, score}
 
   //need a function that appends rows to array and sorts by score
@@ -21,7 +21,6 @@ export function Leaderboard({user, petState, score, setScore}) {
 
   const scoreRows = [];
   if (leaderboard.length) {
-    console.log(leaderboard);
     for (const [i, leaderboardEntry] of leaderboard.entries()) {
       scoreRows.push(
         <tr key={i}>
@@ -49,6 +48,18 @@ export function Leaderboard({user, petState, score, setScore}) {
       setTeststuff(testing.test);
     });
   }*/
+ React.useEffect(() => {
+    updateLeader();
+  }, []);
+
+  function updateLeader() {
+    fetch('/api/data/userList')
+    .then((response) => response.json())
+    .then((leaderboard) => {
+      console.log('got something');
+      setLeader(leaderboard);
+    });
+  }
 
 
   return (
