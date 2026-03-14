@@ -115,7 +115,7 @@ async function createUser(username, password) {
     username: username,
     password: passwordHash,
     token: uuid.v4(),
-    petState: {"petName": "Brian"/*Pet-Name*/, "sprite": "../public/pet_sprites/base_cat.png", "icon": "../public/pet_sprites/base_icon.png"},
+    petState: {"petName": "Brian"/*Pet-Name*/, "sprite": "../pet_sprites/base_cat.png", "icon": "../pet_sprites/base_icon.png"},
     score: 0,
   };
   users.push(userInfo);

@@ -27,7 +27,7 @@ const navigate = useNavigate();
   
   return(
     <section className="authlogin">
-    <img className = 'pet-icon float' src={props.petState.icon || "../public/pet_sprites/base_icon.png"} alt="pet sprite" />
+    <img className = 'pet-icon float' src={props.petState.icon || "../pet_sprites/base_icon.png"} alt="pet sprite" />
     <h2>Welcome, {props.user.username}!</h2>
     
     <div className="submit-button"> 
