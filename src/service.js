@@ -59,7 +59,7 @@ export function updateScore(score) {
 
     return score
 }
-export function randomScore(score) {
+export function randomScore( score) {
     const randomPoints = Math.floor(Math.random() * 10) + 1; // Random points between 1 and 10
     if (randomPoints <= 5) {
         score += randomPoints; // Add points to score
@@ -71,9 +71,13 @@ export function randomScore(score) {
 }
 
 
-
-function APIupdateScore(score) {
+//still have no clue why it aint working
+async function APIupdateScore(scoreToUpdate) {
  fetch('/api/data/score', {
         method: 'POST',
+        body: JSON.stringify({scoreUpdate: scoreToUpdate }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
     });
 }

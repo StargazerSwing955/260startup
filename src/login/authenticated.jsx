@@ -15,7 +15,6 @@ const navigate = useNavigate();
         localStorage.removeItem('username');
         props.onLogout();
       });
- 
   }
   React.useEffect(() => {
     fetch('/api/data/user')

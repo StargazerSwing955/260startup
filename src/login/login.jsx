@@ -5,7 +5,7 @@ import { Authenticated } from './authenticated';
 import { AuthState } from './authState';
 
 
-export function Login({user, setUser, authState, onAuthChange}) {
+export function Login({user, setUser, score, setScore, authState, onAuthChange}) {
 
   //current known problems:
   // not properly calling the back end; think it's getting there and not knowing what to do
@@ -34,7 +34,7 @@ export function Login({user, setUser, authState, onAuthChange}) {
         {authState !== AuthState.Unknown && <h2>PetPet Login</h2>}
         
         {authState === AuthState.Authenticated && (
-          <Authenticated user={user} setUser={setUser} onLogout={() => onAuthChange(user, AuthState.Unauthenticated)} />
+          <Authenticated user={user} setUser={setUser} score={score} setScore={setScore} onLogout={() => onAuthChange(user, AuthState.Unauthenticated)} />
         )}
          {authState === AuthState.Unauthenticated && (
           <Unauthenticated

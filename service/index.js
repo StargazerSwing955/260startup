@@ -29,7 +29,7 @@ apiRouter.post('/auth/create', async (req, res) => {
     const userInfo= await createUser(req.body.username, req.body.password);
 
     setAuthCookie(res, userInfo.token);
-    res.send({ username:userInfo.username });
+    res.send({ username: userInfo.username });
   }
 });
 
@@ -97,8 +97,11 @@ apiRouter.post('/data/costume', verifyAuth, async (req, res) => {
 //update score
 apiRouter.post('/data/score', verifyAuth, async (req, res) => {
   const userInfo = await findUser('token', req.cookies[authCookieName]);
-  userInfo.score = req.body.score;
-  res.send(userInfo.score);
+  if (userInfo) {
+    userInfo.score = req.body.scoreUpdate; 
+    res.send(userInfo.score);
+    console.log(userInfo.score);
+  }
 });
 
 //maybe instead consolodate them into one endpoint that updates all the userInfo 

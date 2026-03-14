@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 
@@ -16,8 +16,18 @@ export default function App() {
     const [authState, setAuthState] = React.useState(currentAuthState);
 
 
-    const [petState, setPetState] = React.useState({"petName": "Brian"/*Pet-Name*/, "sprite": "../pet_sprites/base_cat.png", "icon": "../pet_sprites/base_icon.png"});
-    const [score, setScore] = React.useState(0);
+    const [petState, setPetState] = React.useState(user?.petState || {"petName": "Brian"/*Pet-Name*/, "sprite": "../pet_sprites/base_cat.png", "icon": "../pet_sprites/base_icon.png"});
+    const [score, setScore] = React.useState(user?.score || 0);
+
+    React.useEffect(() => {
+        fetch('/api/data/user')
+            .then((response) => response.json())
+            .then((userData) => {
+                setUser(userData);
+                setPetState(userData.petState);
+                setScore(userData.score);
+            });
+    }, []);
 
   return ( 
     <BrowserRouter>
@@ -32,7 +42,7 @@ export default function App() {
                     </li>
 
                     {/* add authState? */}
-                    {user && <> 
+                    {AuthState.Authenticated === authState && <> 
                     <li className="nav-item">
                         <NavLink to='play'>Play</NavLink>
                     </li>
@@ -51,7 +61,7 @@ export default function App() {
     </header>
 
     <Routes>
-     <Route path='/' element={<Login user={user} setUser={setUser} authState={authState} onAuthChange={(user, authState) => {
+     <Route path='/' element={<Login user={user} setUser={setUser} score={score} setScore={setScore} authState={authState} onAuthChange={(user, authState) => {
                   setAuthState(authState)
                   setUser(user);
                   console.log(user);
