@@ -35,7 +35,7 @@ export function changeCostume(score, sprite, icon, petName) {
         index++;
     }
     //update it in the back end
-    //APIupdateCostume({"petName": petName, "sprite": costumes[index].bodySprite, "icon": costumes[index].headIcon})
+    APIupdateCostume({"petName": petName, "sprite": costumes[index].bodySprite, "icon": costumes[index].headIcon})
     
     return {"petName": petName, "sprite": costumes[index].bodySprite, "icon": costumes[index].headIcon}
 }

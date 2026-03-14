@@ -30,7 +30,7 @@ export function Login({user, setUser, petState, setPetState, score, setScore, au
           <Authenticated user={user} setUser={setUser} petState={petState} score={score} setScore={setScore} onLogout={() => onAuthChange(user, AuthState.Unauthenticated)} />
         )}
          {authState === AuthState.Unauthenticated && (
-          <Unauthenticated user={user} setUser={setUser} score={score} setScore={setScore}
+          <Unauthenticated user={user} petState={petState}setUser={setUser} score={score} setScore={setScore}
             onLogin={(loginusername) => {
               onAuthChange(loginusername, AuthState.Authenticated);
             }}

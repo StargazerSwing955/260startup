@@ -101,7 +101,7 @@ apiRouter.post('/data/score', verifyAuth, async (req, res) => {
   if (userInfo) {
     userInfo.score = req.body.scoreUpdate; 
     res.send(userInfo.score);
-    console.log(userInfo.score);
+    //console.log(userInfo.score);
   }
 });
 
