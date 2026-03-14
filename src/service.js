@@ -35,17 +35,18 @@ export function changeCostume(score, sprite, icon, petName) {
         index++;
     }
     //update it in the back end
+    //APIupdateCostume({"petName": petName, "sprite": costumes[index].bodySprite, "icon": costumes[index].headIcon})
     
     return {"petName": petName, "sprite": costumes[index].bodySprite, "icon": costumes[index].headIcon}
 }
 
 export const costumes = [ //given different names to avoid confusion
-    {"name": "base", "bodySprite": "../pet_sprites/base_cat.png", "headIcon": "../pet_sprites/base_icon.png", "requiredScore": 0},
-    {"name": "black", "bodySprite": "../pet_sprites/black_cat.png", "headIcon": "../pet_sprites/black_icon.png", "requiredScore": 100},
-    {"name": "orange", "bodySprite": "../pet_sprites/orange_cat.png", "headIcon": "../pet_sprites/orange_icon.png", "requiredScore": 250},
-    {"name": "tuxedo", "bodySprite": "../pet_sprites/tux_cat.png", "headIcon": "../pet_sprites/tux_icon.png", "requiredScore": 500},
-    {"name": "calico", "bodySprite": "../pet_sprites/calico_cat.png", "headIcon": "../pet_sprites/calico_icon.png", "requiredScore": 750},
-    {"name": "crown", "bodySprite": "../pet_sprites/crown_cat.png", "headIcon": "../pet_sprites/crown_icon.png", "requiredScore": 1000}
+    {"name": "base", "bodySprite": "../public/pet_sprites/base_cat.png", "headIcon": "../public/pet_sprites/base_icon.png", "requiredScore": 0},
+    {"name": "black", "bodySprite": "../public/pet_sprites/black_cat.png", "headIcon": "../public/pet_sprites/black_icon.png", "requiredScore": 100},
+    {"name": "orange", "bodySprite": "../public/pet_sprites/orange_cat.png", "headIcon": "../public/pet_sprites/orange_icon.png", "requiredScore": 250},
+    {"name": "tuxedo", "bodySprite": "../public/pet_sprites/tux_cat.png", "headIcon": "../public/pet_sprites/tux_icon.png", "requiredScore": 500},
+    {"name": "calico", "bodySprite": "../public/pet_sprites/calico_cat.png", "headIcon": "../public/pet_sprites/calico_icon.png", "requiredScore": 750},
+    {"name": "crown", "bodySprite": "../public/pet_sprites/crown_cat.png", "headIcon": "../public/pet_sprites/crown_icon.png", "requiredScore": 1000}
 ]
 
 
@@ -76,6 +77,16 @@ async function APIupdateScore(scoreToUpdate) {
  fetch('/api/data/score', {
         method: 'POST',
         body: JSON.stringify({scoreUpdate: scoreToUpdate }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+    });
+}
+
+async function APIupdateCostume(costumeToUpdate) {
+ fetch('/api/data/costume', {
+        method: 'POST',
+        body: JSON.stringify({costumeUpdate: costumeToUpdate }),
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
         },

@@ -28,6 +28,9 @@ export function Unauthenticated(props) {
     if (response?.status === 200) {
       localStorage.setItem('userName', username);
       props.onLogin(username);
+      //set score and pet state here?
+      //to the one in back end
+      
     } else {
       const body = await response.json();
       setDisplayError(`⚠ Error: ${body.msg}`);

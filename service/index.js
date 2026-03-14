@@ -88,8 +88,9 @@ apiRouter.get('/data/userList', async (req, res) => {
 apiRouter.post('/data/costume', verifyAuth, async (req, res) => {
   const userInfo = await findUser('token', req.cookies[authCookieName]);
   if (userInfo) {
-  userInfo.petState = req.body.petState;
+  userInfo.petState = req.body.costumeUpdate;
   res.send(userInfo.petState);
+  console.log(userInfo.petState);
   }
 
 });
@@ -114,7 +115,7 @@ async function createUser(username, password) {
     username: username,
     password: passwordHash,
     token: uuid.v4(),
-    petState: {sprite: "../pet_sprites/base_cat.png", icon: "../pet_sprites/base_icon.png", petName: "Brian"},
+    petState: {"petName": "Brian"/*Pet-Name*/, "sprite": "../public/pet_sprites/base_cat.png", "icon": "../public/pet_sprites/base_icon.png"},
     score: 0,
   };
   users.push(userInfo);

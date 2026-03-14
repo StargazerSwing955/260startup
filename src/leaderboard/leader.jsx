@@ -25,7 +25,7 @@ export function Leaderboard({user, petState, score, setScore}) {
       scoreRows.push(
         <tr key={i}>
           <td>{i+1}</td>
-          <td><img className="pet-icon" src={leaderboardEntry.icon} alt="Pet icon"/></td>
+          <td><img className="pet-icon" src={leaderboardEntry.petState.icon} alt="Pet icon"/></td>
           <td>{leaderboardEntry.username}</td>
           <td>{leaderboardEntry.score}</td>
         </tr>

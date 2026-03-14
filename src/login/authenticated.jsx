@@ -27,7 +27,9 @@ const navigate = useNavigate();
   
   return(
     <section className="authlogin">
+    <img className = 'pet-icon float' src={props.petState.icon} alt="pet sprite" />
     <h2>Welcome, {props.user.username}!</h2>
+    
     <div className="submit-button"> 
         <button onClick={logOut}>Log Out</button>
                 

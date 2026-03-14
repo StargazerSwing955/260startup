@@ -16,7 +16,7 @@ export default function App() {
     const [authState, setAuthState] = React.useState(currentAuthState);
 
 
-    const [petState, setPetState] = React.useState(user?.petState || {"petName": "Brian"/*Pet-Name*/, "sprite": "../pet_sprites/base_cat.png", "icon": "../pet_sprites/base_icon.png"});
+    const [petState, setPetState] = React.useState(user?.petState || {"petName": "Brian"/*Pet-Name*/, "sprite": "../public/pet_sprites/base_cat.png", "icon": "../public/pet_sprites/base_icon.png"});
     const [score, setScore] = React.useState(user?.score || 0);
 
     React.useEffect(() => {
@@ -61,7 +61,7 @@ export default function App() {
     </header>
 
     <Routes>
-     <Route path='/' element={<Login user={user} setUser={setUser} score={score} setScore={setScore} authState={authState} onAuthChange={(user, authState) => {
+     <Route path='/' element={<Login user={user} setUser={setUser} petState={petState} setPetState={setPetState} score={score} setScore={setScore} authState={authState} onAuthChange={(user, authState) => {
                   setAuthState(authState)
                   setUser(user);
                   console.log(user);
