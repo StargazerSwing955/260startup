@@ -19,15 +19,15 @@ export default function App() {
     const [petState, setPetState] = React.useState(user?.petState || {"petName": "Brian"/*Pet-Name*/, "sprite": "../public/pet_sprites/base_cat.png", "icon": "../public/pet_sprites/base_icon.png"});
     const [score, setScore] = React.useState(user?.score || 0);
 
-    // React.useEffect(() => {
-    //     fetch('/api/data/user')
-    //         .then((response) => response.json())
-    //         .then((userData) => {
-    //             setUser(userData);
-    //             setPetState(userData.petState);
-    //             setScore(userData.score);
-    //         });
-    // }, []);
+   function updateUserInfo() {
+        fetch('/api/data/user')
+            .then((response) => response.json())
+            .then((userData) => {
+                setUser(userData);
+                setPetState(userData.petState);
+                setScore(userData.score);
+            });
+    }
 
   return ( 
     <BrowserRouter>

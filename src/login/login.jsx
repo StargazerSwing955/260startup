@@ -20,6 +20,16 @@ export function Login({user, setUser, petState, setPetState, score, setScore, au
   //   }
   // }
 
+  function updateUserInfo() {
+    fetch('/api/data/user')
+        .then((response) => response.json())
+        .then((userData) => {
+            setUser(userData);
+            setPetState(userData.petState);
+            setScore(userData.score);
+        });
+    }
+
 
     return (
      <main>
@@ -33,6 +43,7 @@ export function Login({user, setUser, petState, setPetState, score, setScore, au
           <Unauthenticated user={user} petState={petState}setUser={setUser} score={score} setScore={setScore}
             onLogin={(loginusername) => {
               onAuthChange(loginusername, AuthState.Authenticated);
+              updateUserInfo();
             }}
           />
         )}
