@@ -15,6 +15,10 @@ const navigate = useNavigate();
         localStorage.removeItem('username');
         props.onLogout();
       });
+      //remove info on front end???
+
+     
+
   }
   React.useEffect(() => {
     fetch('/api/data/user')

@@ -90,7 +90,7 @@ apiRouter.post('/data/costume', verifyAuth, async (req, res) => {
   if (userInfo) {
   userInfo.petState = req.body.costumeUpdate;
   res.send(userInfo.petState);
-  console.log(userInfo.petState);
+  //console.log(userInfo.petState);
   }
 
 });
