@@ -60,7 +60,7 @@ apiRouter.delete('/auth/logout', async (req, res) => {
 
 // Middleware to verify that the user is authorized to call an endpoint
 const verifyAuth = async (req, res, next) => {
-  const userInfo= await findUser('token', req.cookies[authCookieName]);
+  const userInfo = await findUser('token', req.cookies[authCookieName]);
   if (userInfo) {
     next();
   } else {
@@ -70,7 +70,7 @@ const verifyAuth = async (req, res, next) => {
 
 //user: username, password, token, petState, score
 apiRouter.get('/data/user', verifyAuth, async (req, res) => {
-  const userInfo= await findUser('token', req.cookies[authCookieName]);
+  const userInfo = await findUser('token', req.cookies[authCookieName]);
   res.send({ username: userInfo.username, petState: userInfo.petState, score: userInfo.score });
 });
 
@@ -80,9 +80,29 @@ apiRouter.get('/data/userList', async (req, res) => {
     leaderlist.push({ username: u.username, petState: u.petState, score: u.score });
   }
   leaderlist.sort((a, b) => b.score - a.score);
-  
+
   res.send(leaderlist);
 });
+
+//update petState 
+apiRouter.post('/data/costume', verifyAuth, async (req, res) => {
+  const userInfo = await findUser('token', req.cookies[authCookieName]);
+  if (userInfo) {
+  userInfo.petState = req.body.petState;
+  res.send(userInfo.petState);
+  }
+
+});
+
+//update score
+apiRouter.post('/data/score', verifyAuth, async (req, res) => {
+  const userInfo = await findUser('token', req.cookies[authCookieName]);
+  userInfo.score = req.body.score;
+  res.send(userInfo.score);
+});
+
+//maybe instead consolodate them into one endpoint that updates all the userInfo 
+
 
 async function createUser(username, password) {
   const passwordHash = await bcrypt.hash(password, 10);
@@ -103,6 +123,12 @@ async function findUser(field, value) {
   if (!value) return null;
 
   return users.find((u) => u[field] === value);
+  // for (const u of users) {
+  //   if (users[u][field] === value) {
+  //     return u;
+  //   }
+  // }
+  // return null;
 }
 
 // setAuthCookie in the HTTP response

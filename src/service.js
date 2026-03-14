@@ -34,6 +34,7 @@ export function changeCostume(score, sprite, icon, petName) {
     else{
         index++;
     }
+    //update it in the back end
     
     return {"petName": petName, "sprite": costumes[index].bodySprite, "icon": costumes[index].headIcon}
 }
@@ -52,6 +53,10 @@ export const costumes = [ //given different names to avoid confusion
 export function updateScore(score) {
     //when a certain amount of time has passed, add like 10 points
     score += 10
+
+    //call function to update back end
+    APIupdateScore(score);
+
     return score
 }
 export function randomScore(score) {
@@ -59,5 +64,16 @@ export function randomScore(score) {
     if (randomPoints <= 5) {
         score += randomPoints; // Add points to score
     } 
+    //call function to update back end
+    APIupdateScore(score);
+
     return score;
+}
+
+
+
+function APIupdateScore(score) {
+ fetch('/api/data/score', {
+        method: 'POST',
+    });
 }
