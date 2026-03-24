@@ -7,7 +7,7 @@ const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostna
 const client = new MongoClient(url);
 const db = client.db('PetPet');
 const userCollection = db.collection('userInfo');
-// const scoreCollection = db.collection('score'); don't think I need this either
+// const scoreCollection = db.collection('leaderboard'); 
 
 // This will asynchronously test the connection and exit the process if it 
 // good to know

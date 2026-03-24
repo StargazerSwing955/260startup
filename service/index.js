@@ -40,7 +40,7 @@ apiRouter.post('/auth/login', async (req, res) => {
   if (userInfo) {
     if (await bcrypt.compare(req.body.password, userInfo.password)) {
       userInfo.token = uuid.v4();
-      await DB.updateUser(userInfo)
+      await DB.updateUser(userInfo);
       setAuthCookie(res, userInfo.token);
       res.send({ username: userInfo.username });
       return;
@@ -91,6 +91,9 @@ apiRouter.post('/data/costume', verifyAuth, async (req, res) => {
   const userInfo = await findUser('token', req.cookies[authCookieName]);
   if (userInfo) {
   userInfo.petState = req.body.costumeUpdate;
+
+  await DB.updateUser(userInfo);
+
   res.send(userInfo.petState);
   //console.log(userInfo.petState);
   }
@@ -102,6 +105,7 @@ apiRouter.post('/data/score', verifyAuth, async (req, res) => {
   const userInfo = await findUser('token', req.cookies[authCookieName]);
   if (userInfo) {
     userInfo.score = req.body.scoreUpdate; 
+     await DB.updateUser(userInfo);
     res.send(userInfo.score);
     //console.log(userInfo.score);
   }

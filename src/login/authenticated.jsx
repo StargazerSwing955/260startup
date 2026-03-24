@@ -21,7 +21,7 @@ const navigate = useNavigate();
       .then((response) => response.json())
       .then((userData) => {
         props.setUser({ username: userData.username, petState: userData.petState, score: userData.score });
-        
+    console.log(props.user);   
   });}, []);
   
   

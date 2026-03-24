@@ -1,8 +1,6 @@
 import React from 'react';
 
 
-
-
 export function Leaderboard({user, petState, score, setScore}) {
   //const[testItem, setTeststuff] = React.useState('before test');
   const [leaderboard, setLeader] = React.useState([]);
