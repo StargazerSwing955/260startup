@@ -6,7 +6,7 @@ const config = require('./dbConfig.json');
 const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostname}`;
 const client = new MongoClient(url);
 const db = client.db('PetPet');
-const userCollection = db.collection('user');
+const userCollection = db.collection('userInfo');
 // const scoreCollection = db.collection('score'); don't think I need this either
 
 // This will asynchronously test the connection and exit the process if it 
@@ -63,6 +63,6 @@ module.exports = {
   addUser,
   updateUser,
   updateUserRemoveAuth,
-  addScore,
-  getHighScores,
+  // addScore,
+  // getHighScores,
 };

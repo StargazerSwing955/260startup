@@ -39,7 +39,8 @@ apiRouter.post('/auth/login', async (req, res) => {
   const userInfo= await findUser('username', req.body.username);
   if (userInfo) {
     if (await bcrypt.compare(req.body.password, userInfo.password)) {
-     userInfo.token = uuid.v4();
+      userInfo.token = uuid.v4();
+      await DB.updateUser(userInfo)
       setAuthCookie(res, userInfo.token);
       res.send({ username: userInfo.username });
       return;
@@ -52,7 +53,7 @@ apiRouter.post('/auth/login', async (req, res) => {
 apiRouter.delete('/auth/logout', async (req, res) => {
   const userInfo = await findUser('token', req.cookies[authCookieName]);
   if (userInfo) {
-    delete userInfo.token;
+    await DB.updateUserRemoveAuth(userInfo);
   }
   res.clearCookie(authCookieName);
   res.status(204).end();
@@ -119,7 +120,8 @@ async function createUser(username, password) {
     petState: {"petName": "Brian"/*Pet-Name*/, "sprite": "../pet_sprites/base_cat.png", "icon": "../pet_sprites/base_icon.png"},
     score: 0,
   };
-  users.push(userInfo);
+  // users.push(userInfo);
+  await DB.addUser(userInfo);
 
   return userInfo;
 }
@@ -127,7 +129,12 @@ async function createUser(username, password) {
 async function findUser(field, value) {
   if (!value) return null;
 
-  return users.find((u) => u[field] === value);
+  if (field === 'token') {
+    return DB.getUserByToken(value);
+  }
+  return DB.getUser(value);
+
+  // return users.find((u) => u[field] === value);
   // for (const u of users) {
   //   if (users[u][field] === value) {
   //     return u;
