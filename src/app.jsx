@@ -16,7 +16,7 @@ export default function App() {
     const [authState, setAuthState] = React.useState(currentAuthState);
 
 
-    const [petState, setPetState] = React.useState(user?.petState || {"petName": "Brian"/*Pet-Name*/, "sprite": "../public/pet_sprites/base_cat.png", "icon": "../public/pet_sprites/base_icon.png"});
+    const [petState, setPetState] = React.useState(user?.petState || {"petName": "Brian"/*Pet-Name*/, "sprite": "../pet_sprites/base_cat.png", "icon": "../pet_sprites/base_icon.png"});
     const [score, setScore] = React.useState(user?.score || 0);
 
    function updateUserInfo() {
