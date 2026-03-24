@@ -1,5 +1,4 @@
 .vscode/
 .DS_Store
 node_modules/
-#adding that now so I don't forget
-dbconfig.json 
+dbConfig.json 
