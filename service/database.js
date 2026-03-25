@@ -10,7 +10,6 @@ const userCollection = db.collection('userInfo');
 // const scoreCollection = db.collection('leaderboard'); 
 
 // This will asynchronously test the connection and exit the process if it 
-// good to know
 (async function testConnection() {
   try {
     await db.command({ ping: 1 });
@@ -41,6 +40,11 @@ async function updateUserRemoveAuth(user) {
   await userCollection.updateOne({ username: user.username }, { $unset: { token: 1 } });
 }
 
+//getting players for leaderboard
+async function leaderlist(){
+  await userCollection.find({}, { projection: { username: 1, petState: 1, score: 61, _id: 0 } })
+  .toArray();
+}
 //Don't need this for my project
 
 // async function addScore(score) {
@@ -48,12 +52,12 @@ async function updateUserRemoveAuth(user) {
 // }
 
 // function getHighScores() {
-//   const query = { score: { $gt: 0, $lt: 900 } };
+//   const query = { score: { $gt: 0, $lt: 90000 } };
 //   const options = {
 //     sort: { score: -1 },
-//     limit: 10,
+//     // limit: 30,
 //   };
-//   const cursor = scoreCollection.find(query, options);
+//   const cursor = userCollection.find(query, options);
 //   return cursor.toArray();
 // }
 
@@ -63,6 +67,7 @@ module.exports = {
   addUser,
   updateUser,
   updateUserRemoveAuth,
+  leaderlist,
   // addScore,
-  // getHighScores,
+  //getHighScores,
 };
