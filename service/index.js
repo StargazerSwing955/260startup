@@ -76,12 +76,15 @@ apiRouter.get('/data/user', verifyAuth, async (req, res) => {
   res.send({ username: userInfo.username, petState: userInfo.petState, score: userInfo.score });
 });
 
+//leaderboard call
 apiRouter.get('/data/userList', async (req, res) => {
-  let leaderlist = [];
-  for (const u of users) {
-    leaderlist.push({ username: u.username, petState: u.petState, score: u.score });
-  }
-  leaderlist.sort((a, b) => b.score - a.score);
+  //let leaderlist = [];
+  // for (const u of users) {
+  //   leaderlist.push({ username: u.username, petState: u.petState, score: u.score });
+  // }
+  // leaderlist.sort((a, b) => b.score - a.score);
+
+  const leaderlist = await DB.getHighScores();
 
   res.send(leaderlist);
 });

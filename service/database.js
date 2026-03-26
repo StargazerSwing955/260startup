@@ -41,25 +41,25 @@ async function updateUserRemoveAuth(user) {
 }
 
 //getting players for leaderboard
-async function leaderlist(){
-  await userCollection.find({}, { projection: { username: 1, petState: 1, score: 61, _id: 0 } })
-  .toArray();
-}
+// async function leaderlist(){
+//   await userCollection.find({}, { projection: { username: 1, petState: 1, score: 61, _id: 0 } })
+//   .toArray();
+// }
 //Don't need this for my project
 
 // async function addScore(score) {
 //   return scoreCollection.insertOne(score);
 // }
 
-// function getHighScores() {
-//   const query = { score: { $gt: 0, $lt: 90000 } };
-//   const options = {
-//     sort: { score: -1 },
-//     // limit: 30,
-//   };
-//   const cursor = userCollection.find(query, options);
-//   return cursor.toArray();
-// }
+function getHighScores() {
+  const query = { score: { $gt: 0, $lt: 90000 } };
+  const options = {
+    sort: { score: -1 },
+    limit: 10,
+  };
+  const cursor = userCollection.find(query, options);
+  return cursor.toArray();
+}
 
 module.exports = {
   getUser,
@@ -67,7 +67,7 @@ module.exports = {
   addUser,
   updateUser,
   updateUserRemoveAuth,
-  leaderlist,
+  //leaderlist,
   // addScore,
-  //getHighScores,
+  getHighScores,
 };
