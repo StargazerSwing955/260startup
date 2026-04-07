@@ -1,14 +1,25 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { changeCostume, updateScore, randomScore } from '../service';
-import { Players } from './notifhandler';
+import { changeCostume, costumeName, updateScore, randomScore } from '../service';
+import { PlayerEvents } from './notifhandler';
+import { GameEvent, GameNotifier } from './notifications';
+
 
 export function Play({user, petState, setPetState, score, setScore}) {
   
   //play functions calling to service
   const nextCostume =() => {
-    setPetState(changeCostume(score, petState.sprite, petState.icon, petState.petName))
+    let state =changeCostume(score, petState.sprite, petState.icon, petState.petName);
+    setPetState(state);
+    costumeEvent(user.username, costumeName(state.sprite));
   }
+
+  async function costumeEvent(username, costumeName){
+      GameNotifier.broadcastEvent(username, GameEvent.Costume, {msg: `switched costume to ${costumeName}`, costume: costumeName});
+    }
+
+  
+
   const playMode = () => {
     setScore(updateScore(score))
   } 
@@ -28,14 +39,15 @@ export function Play({user, petState, setPetState, score, setScore}) {
     }, 200)
   },[])
 
+  
+
   return (
    <main>
 
         <div className="play-page-content">
-      
-        <ul className="notification-list"> {/*<!-- class name lengthed to prevent confusion --> */}
-            <li className="notification"><Players /></li> 
-        </ul>
+         
+            <div className="notification-list"><PlayerEvents /></div> 
+        
 
         <p>Welcome back, {user?.username || "Guest"}!</p>
 

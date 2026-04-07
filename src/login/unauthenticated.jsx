@@ -1,4 +1,5 @@
- import React from 'react';
+import React from 'react';
+import { GameEvent, GameNotifier } from '../play/notifications';
  
 export function Unauthenticated(props) {
   const [displayError, setDisplayError] = React.useState(null);
@@ -17,6 +18,10 @@ export function Unauthenticated(props) {
     
   }
 
+  async function loginEvent(){
+    GameNotifier.broadcastEvent(username, GameEvent.Login, {msg: 'logged in'});
+  }
+
   async function loginOrCreate(endpoint) {
     const response = await fetch(endpoint, {
       method: 'post',
@@ -30,7 +35,7 @@ export function Unauthenticated(props) {
       props.onLogin(username);
       //set score and pet state here?
       //to the one in back end
-      
+      await loginEvent();
     } else {
       const body = await response.json();
       setDisplayError(`⚠ Error: ${body.msg}`);

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { GameEvent, GameNotifier } from './notifications';
 
-export function Players(props) {
+export function PlayerEvents(props) {
   const userName = props.userName;
 
   const [events, setEvent] = React.useState([]);
@@ -16,20 +16,24 @@ export function Players(props) {
   }, []);
 
   function handleGameEvent(event) {
-    setEvent((prevEvents) => {
-      let newEvents = [event, ...prevEvents];
-      if (newEvents.length > 10) {
-        newEvents = newEvents.slice(1, 10);
-      }
-      return newEvents;
-    });
+    setEvent([...events, event]);
   }
 
   function createMessageArray() {
     const messageArray = [];
+
     for (const [i, event] of events.entries()) {
-      let message = 'unknown';
-        message = ` unlocked costume ${event.value.costume}`;
+
+      let message = '';
+      if (event.type === GameEvent.Login){
+        message = ` has logged in`;
+      }
+      else if (event.type === GameEvent.Costume) {
+        message = ` is using costume ${event.value.costume}`;
+      }
+      else{
+        continue;
+      }
       
       messageArray.push(
         <div key={i} className='event'>
@@ -43,7 +47,6 @@ export function Players(props) {
 
   return (
     <div className='players'>
-      Player
       <span className='player-name'>{userName}</span>
       <div id='player-messages'>{createMessageArray()}</div>
     </div>

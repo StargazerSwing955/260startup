@@ -1,13 +1,15 @@
+import { Login } from "../login/login";
 import { costumes } from "../service";
 
 
 //mostly copied from Simon
 
 const GameEvent = {
-//   System: 'system',
+   System: 'system',
+   Login: 'login',
 //   End: 'gameEnd',
 //   Start: 'gameStart',
-    Score: 'score',
+//    Score: 'score',
     Costume: 'costume',
 };
 
@@ -24,17 +26,28 @@ class GameEventNotifier {
   handlers = [];
 
   constructor() {
-    // Simulate chat messages that will eventually come over WebSocket
-    setInterval(() => {
-      const cosName = costumes[Math.floor(Math.random() * costumes.length)].name;
-      const userName = 'Eich';
-      this.broadcastEvent(userName, GameEvent.Costume, { name: userName, costume: cosName});
-    }, 5000);
+    let port = window.location.port;
+    const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+    this.socket = new WebSocket(`${protocol}://${window.location.hostname}:${port}/ws`);
+    this.socket.onopen = (event) => {
+      this.receiveEvent(new EventMessage('PetPet', GameEvent.System, { msg: 'connected' }));
+      console.log('WebSocket connection established');
+    };
+    this.socket.onclose = (event) => {
+      this.receiveEvent(new EventMessage('PetPet', GameEvent.System, { msg: 'disconnected' }));
+    };
+
+    this.socket.onmessage = async (msg) => {
+      try {
+        const event = JSON.parse(await msg.data.text());
+        this.receiveEvent(event);
+      } catch {}
+    };
   }
 
-  broadcastEvent(from, type, value) {
+ broadcastEvent(from, type, value) {
     const event = new EventMessage(from, type, value);
-    this.receiveEvent(event);
+    this.socket.send(JSON.stringify(event));
   }
 
   addHandler(handler) {
@@ -48,8 +61,10 @@ class GameEventNotifier {
   receiveEvent(event) {
     this.events.push(event);
 
-    this.handlers.forEach((handler) => {
-      handler(event);
+    this.events.forEach((e) => {
+      this.handlers.forEach((handler) => {
+        handler(e);
+      });
     });
   }
 }

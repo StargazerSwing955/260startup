@@ -30,6 +30,7 @@ export function Login({user, setUser, petState, setPetState, score, setScore, au
         });
     }
 
+    
 
     return (
      <main>

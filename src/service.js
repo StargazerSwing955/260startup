@@ -1,3 +1,4 @@
+
 export function getQuote() {
     fetch('https://quote.cs260.click')
     .then((response) => response.json())
@@ -36,12 +37,19 @@ export function changeCostume(score, sprite, icon, petName) {
     }
     //update it in the back end
     APIupdateCostume({"petName": petName, "sprite": costumes[index].bodySprite, "icon": costumes[index].headIcon})
-    
+    console.log(costumes[index].name, costumes[index].bodySprite);
     return {"petName": petName, "sprite": costumes[index].bodySprite, "icon": costumes[index].headIcon}
 }
 
+export function costumeName(costume) {
+    const costumeIndex = costumes.findIndex(cost => cost.bodySprite === costume);
+    console.log(costumes[costumeIndex]?.name, costumes[costumeIndex]?.bodySprite);
+    return costumes[costumeIndex]?.name;
+}
+
+
 export const costumes = [ //given different names to avoid confusion
-    {"name": "base", "bodySprite": "../pet_sprites/base_cat.png", "headIcon": "../pet_sprites/base_icon.png", "requiredScore": 0},
+    {"name": "white", "bodySprite": "../pet_sprites/base_cat.png", "headIcon": "../pet_sprites/base_icon.png", "requiredScore": 0},
     {"name": "black", "bodySprite": "../pet_sprites/black_cat.png", "headIcon": "../pet_sprites/black_icon.png", "requiredScore": 100},
     {"name": "orange", "bodySprite": "../pet_sprites/orange_cat.png", "headIcon": "../pet_sprites/orange_icon.png", "requiredScore": 250},
     {"name": "tuxedo", "bodySprite": "../pet_sprites/tux_cat.png", "headIcon": "../pet_sprites/tux_icon.png", "requiredScore": 500},
